@@ -47,7 +47,7 @@ blockquote:before, blockquote:after, q:before, q:after {content: '';content: non
 table {border-collapse: collapse;border-spacing: 0;}
 a{ text-decoration: none; color: #666;}
 img {vertical-align: top; max-width: 100%;}
-i {font-style: normal;}
+i {font-style: normal; display: block;}
 p::first-line {}
 p::first-letter {}
 

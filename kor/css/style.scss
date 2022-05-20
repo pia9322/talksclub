@@ -72,6 +72,8 @@ $color-100 : #0161da;
 @mixin font-R {font-family: 'Roboto';}
 @mixin font-Nanum {font-family: 'Nanum Brush Script';}
 @mixin font-gmark-bold {font-family: 'gmarket-b';}
+@mixin font-gmark-m {font-family: 'gmarket-m';}
+@mixin font-gmark-l {font-family: 'gmarket-l';}
 
 @mixin font-40 { font-size: 40px;}
 @mixin font-32 { font-size: 32px;}
@@ -128,7 +130,7 @@ body {
         close_btn primary $color
     */
     .lity-close {color: $color-100 !important; }
-
+    .fixed_layout {@include fixed-layout();}
     // a link hover effect
     a.a_link {@include transition(.15s);&:hover { color: $color-100; }}
     .non_link {cursor: default;}
@@ -511,6 +513,10 @@ body {
             position: absolute; left: 0; top: calc(100% - 1px);
             width: 100%; height: 200px; 
             border-bottom: 4px solid $color-100;
+            display: none;
+            &.active {
+                display: block;
+            }
             .header_full_wrap {
                 @include fullsize();
                 padding-left: 178px;
@@ -565,6 +571,67 @@ body {
 // ==================================== page css ====================================
 // ==================================== page css ====================================
 // ==================================== page css ====================================
+
+body {
+    main {
+        &#main_page {
+            .main_section {
+                &.section_01 {
+                    position: relative;
+                    margin-top: 80px;
+                    .wrap {
+                        h4 {@include font-gmark-m(); font-size: 20px; letter-spacing: -0.4px; }
+                        h1 {
+                            margin-top: 20px;
+                            @include font-gmark-m(); font-size: 40px; line-height: 1.35; letter-spacing: -1.6px;
+
+                            em {
+                                @include font-gmark-bold();
+                                position: relative;
+                                &::after {
+                                    content: '';
+                                    position: absolute; left: 0; bottom: 0;
+                                    width: 100%;
+                                    height: 20px;
+                                    background-color: #169efe;
+                                    opacity: 0.12;
+                                }
+                            }
+                        }
+                    }
+                    .member_section {
+                        position:absolute;right: 0; top: 0;
+                        width: 710px; height: 450px;
+                        display: flex;
+                        .box {
+                            width: 310px; height: 310px;
+                            border-radius: 25px;
+                            &.box_user {
+                                margin-top: 75px;
+                                background-color: #0161da;
+                                border-bottom-right-radius: 0;
+                                .login {
+                                    padding: 40px 25px;
+                                }
+                            }
+                            &.box_cs {
+                                margin-top: 125px;
+                                background-color: #01afee;
+                                border-bottom-left-radius: 0;
+                            }
+                        } 
+                        figure {
+                            position: absolute; right: 0; top: 0;
+                        }
+                    }
+                } 
+
+             
+            }
+        }
+    }
+}
+
 
 // ==================================== page css ====================================
 // ==================================== page css ====================================

@@ -74,7 +74,7 @@ html{
 	scroll-behavior: smooth;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: auto;
-	overflow-x: hidden;
+	/* overflow-x: hidden; */
 }
 
 body {

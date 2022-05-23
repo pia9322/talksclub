@@ -71,20 +71,21 @@ $color-100 : #0161da;
 @mixin font-M {font-family: 'Montserrat';}
 @mixin font-R {font-family: 'Roboto';}
 @mixin font-Nanum {font-family: 'Nanum Brush Script';}
-@mixin font-gmark-bold {font-family: 'gmarket-b';}
-@mixin font-gmark-m {font-family: 'gmarket-m';}
+@mixin font-gmark-bold {font-family: 'gmarket-b'; font-weight: bold;}
+@mixin font-gmark-m {font-family: 'gmarket-m'; font-weight: 500;}
 @mixin font-gmark-l {font-family: 'gmarket-l';}
 
 @mixin font-40 { font-size: 40px;}
 @mixin font-32 { font-size: 32px;}
-@mixin font-18 { font-size: 18px; letter-spacing: -0.72px;}
+@mixin font-18 { font-size: 18px;}
+@mixin font-15 { font-size: 15px;}
+@mixin font-14 { font-size: 14px;}
 
 
-@mixin subTextTit_01 {
-    // font-size: 3.2rem;
-    font-size: 4rem;
-    font-weight: 300;
-    line-height: 1.5; letter-spacing: -2.56px; text-align: center; 
+@mixin sub_text_01 {
+    font-family: 'Noto Sans KR'; margin-top: 18px;
+    @include font-18();font-weight: 400; line-height: 1.22;letter-spacing: -0.36px;color: #666;
+    
 }
 
 
@@ -146,13 +147,10 @@ body {
     // default
     .btn_01 {
         @include transition(.15s);
-        width: 160px; height: 50px;
-        display: inline-block;
-        font-size: 14px; font-weight: 600;
-        
-        border: 1px solid $color-100;
-        background-color: $color-100;
-        color: #fff; 
+        @include flexCenter();
+        width: 180px; height: 50px;
+        font-size: 18px; font-weight: normal; color: #fff; 
+        border: 1px solid $color-100; background-color: $color-100; border-radius: 25px;
     
 
         span {
@@ -576,15 +574,19 @@ body {
     main {
         &#main_page {
             .main_section {
+                
+                .section_title {
+                    font-size: 40px; line-height: 1.35; letter-spacing: -1.6px;
+                }
+
                 &.section_01 {
                     position: relative;
                     margin-top: 80px;
-                    .wrap {
+                    > .section_wrap {
                         h4 {@include font-gmark-m(); font-size: 20px; letter-spacing: -0.4px; }
-                        h1 {
+                        .section_title {
                             margin-top: 20px;
-                            @include font-gmark-m(); font-size: 40px; line-height: 1.35; letter-spacing: -1.6px;
-
+                            @include font-gmark-m();
                             em {
                                 @include font-gmark-bold();
                                 position: relative;
@@ -600,31 +602,504 @@ body {
                         }
                     }
                     .member_section {
-                        position:absolute;right: 0; top: 0;
+                        position: absolute; right: 0; top: 0; z-index: 9999;
                         width: 710px; height: 450px;
                         display: flex;
                         .box {
                             width: 310px; height: 310px;
                             border-radius: 25px;
+
+                            .box_title {
+                                @include font-gmark-m(); font-size: 24px; line-height: 1; color: #fff; text-align: center;
+                                margin-bottom: 30px;
+                                strong { @include font-gmark-bold() }  
+                            }
+
                             &.box_user {
                                 margin-top: 75px;
                                 background-color: #0161da;
                                 border-bottom-right-radius: 0;
-                                .login {
-                                    padding: 40px 25px;
+                                padding: 40px 25px;
+                                input {
+                                    width: 100%; height: 45px;
+                                    border: none;
+                                    &.input_01 {
+                                        padding: 15px 17px;  
+                                        @include font-15(); color: #aaa;
+                                        &.margin {margin-top: 4px}
+                                    }
+                                    &.input_02 {
+                                        @include font-18(); font-weight: bold;
+                                        margin-top: 10px;
+                                        background-color: #003578; color: #ccdff8;
+                                    }
+                                }
+                                .user_box {
+                                    @include font-15(); 
+                                    display: flex; justify-content: space-between;
+                                    margin-top: 14px;
+                                    a {color: #cae7f1;}
                                 }
                             }
+
                             &.box_cs {
                                 margin-top: 125px;
                                 background-color: #01afee;
                                 border-bottom-left-radius: 0;
+                                padding: 50px 30px;
+                                .box_wrap {
+                                    display: flex; flex-wrap: wrap;
+                                    .box_title {width: 100%;}
+
+                                    figure {
+                                        &.box_01{
+                                            width: 50%;
+                                            text-align: center;
+                                            figcaption {
+                                                @include font-15();
+                                                color: #fff;
+                                                margin-top: 12px;
+                                            }
+                                            &.box_line {
+                                                border-right: 1px solid #aadef1;
+                                            }
+                                        }
+                                        &.box_02{
+                                            width: 100%;
+                                            margin-top: 20px; padding-top: 20px;
+                                            display: flex; align-items: center;
+                                            border-top: 1px solid #aadef1;
+                                            figcaption {
+                                                margin-left: 12px;
+                                                .text_01 {
+                                                    a {
+                                                        @include font-gmark-bold();
+                                                        font-size: 20px; color: #fff;
+                                                    }
+                                                }
+                                                .text_02 {
+                                                    @include font-14();
+                                                    letter-spacing: -0.3px;
+                                                    color: #96cee3;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                             }
+                            
                         } 
+
                         .fixed_img {
                             position: absolute; right: 0; top: 0;
                         }
                     }
                 } 
+
+                &.section_02 {
+                    margin-top: 80px;
+                    .main_visual {
+                        width: 100%; height: 440px;
+                        .swiper-slide {
+                            &.mv_01 {background: url('../images/main/mv_01.png') no-repeat center/cover;}
+                            &.mv_02 {background: url('../images/main/mv_02.png') no-repeat center/cover;}
+                            &.mv_03 {background: url('../images/main/mv_03.png') no-repeat center/cover;}
+                        }
+                    }
+                }
+
+                &.section_03 {
+                    margin-top: -210px; padding: 254px 0 88px; 
+                    background-color: #f5f9ff; 
+                    > .section_wrap {
+                        .section_head {
+                            display: flex; justify-content: center;
+                            .section_title {
+                                display: flex; flex-direction: column;
+                                margin: 66px 0 0 20px;
+                                p {
+                                    font-size: 18px; font-weight: normal; line-height: 1.22;letter-spacing: -0.36px;color: #333;
+                                    >strong {font-weight: bold;}
+                                }
+
+                                strong {
+                                    @include font-gmark-bold();
+                                    line-height: 1;
+                                    margin-top: 16px;
+                                    em {@include font-gmark-bold(); color: #0161da;}
+                                }
+                            }
+                        }
+
+                        .section_body {
+                            margin-top: 30px; 
+                            display: flex; justify-content: space-around;
+                            figure {
+                                text-align: center;
+                                * {
+                                    @include transition(all .15s);
+                                }
+                                img {border-radius: 100%;}
+                                figcaption {
+                                    @include font-15();
+                                    margin-top: 22px;
+                                }
+                                &:hover {
+                                    img {
+                                        box-shadow: 1.6px 2.5px 4.9px 0.1px rgba(122, 122, 122, 0.4);
+                                    }
+                                    figcaption {color: $color-100;}
+                                }
+                            }
+                        }
+                        
+                    }
+                }
+
+                &.section_04 {
+                    margin-top: 140px;
+                    .section_wrap {
+                        display: flex; align-items: flex-start;
+                        .left {
+                            position: sticky; top: 100px; left: 0; z-index: 1;
+                            min-width: 442px;
+                            .section_title {
+                                display: flex; flex-direction: column;
+                                p {
+                                    @include font-gmark-bold();
+                                    em {@include font-gmark-bold(); color: $color-100;}
+                                }
+                                span {
+                                    margin-top: 38px;
+                                    font-size: 18px; font-weight: 400; line-height: 1.22;letter-spacing: -0.36px;
+                                    em {font-weight: bold;}
+                                }
+        
+                                .btn_01 {margin-top: 60px;}
+                            }
+                        }
+                        .right {
+                            margin-left: 85px;
+                            display: flex; justify-content: space-between; flex-wrap: wrap;
+                            align-items: flex-start;
+                            figure {
+                                position: relative;
+                                &:nth-child(2n) { margin-top: 160px;  }
+                                &:last-child {margin-top: 160px;}
+                                // &:first-child {margin-top: 0;}
+                                img {}
+
+                                figcaption {
+                                    position: absolute; left: 0; bottom: -50px;
+                                    padding: 50px 0 0 0;
+                                    background: #fff;
+                                    width: 440px;
+                                    .text_01 {
+                                        @include font-18();
+                                        @include font-gmark-m();
+                                        color: $color-100; letter-spacing: -0.36px;
+                                        em {@include font-gmark-bold();}
+                                    }
+                                    .text_02 {
+                                        margin-top: 18px;
+                                        @include font-gmark-m();
+                                        font-size: 24px;
+                                        em {@include font-gmark-bold();}
+                                    }
+                                    .text_03 {
+                                        margin-top: 30px;
+                                        font-size: 18px;line-height: 1.33;letter-spacing: -0.36px;color: #666;
+                                    }
+                                }
+                            }
+                        }
+                        
+                    }
+                    
+                }
+
+                &.section_05 {
+                    margin-top: 200px;
+                    background: #0161da;
+                    position: relative; z-index: 0;
+
+                    .point_bg {
+                        position: absolute; left: 0; top: -63px;
+                        width: 100%; height: 123px;
+                        border-top-left-radius: 100%; border-top-right-radius: 100%;
+                        background: $color-100;
+                    }
+                    .point_img {
+                        position: absolute; 
+                        &.img_01 {
+                            left: 0; bottom: calc(100% - 100px);
+                        }
+                        &.img_02 { 
+                            right: 0; bottom: calc(100% - 100px);
+                        }
+                    }
+                    
+                    .point_wave {
+                        position: absolute; left: 0; top: 220px;
+                        width: 100%; height: 200px;
+                        background: url('../images/main/wave_01.png') center/cover;
+                    }
+
+                    .section_wrap {
+                        padding: 120px 0;
+                        .section_title {
+                            text-align: center;
+                            color: #fff;
+                            em {@include font-gmark-bold(); line-height: 1;}
+                            p {
+                                margin-top:20px;
+                                @include font-18(); color: #c7d3e3; font-weight: 400;
+                            }
+                        }
+                        .section_content {
+                            margin-top: 60px;
+                            display: flex; justify-content: space-around;
+                            position: relative;
+
+                            figure {
+                                @include flexCenter();
+                                flex-direction: column;
+                                &:hover {
+                                    .img_wrap {
+                                        background: #fff;
+                                        &::after {
+                                            opacity: 1;
+                                        }
+                                    }
+                                }
+                                .img_wrap {
+                                    $wh: 110px;
+                                    @include flexCenter();
+                                    @include transition(all .15s);
+
+                                    position: relative;  
+                                    width: $wh; height: $wh; 
+                                    background: #c5ddfc; border-radius: 20px;
+                                    box-shadow: 2.5px 4.3px 9.8px 0.2px rgba(122, 122, 122, 0.4);
+                                    &::after {
+                                        $wh: 140px;
+                                        @include transition(all .15s);
+                                        @include absolute-center(); z-index: -1;
+                                        content: '';
+                                        width: $wh; height: $wh;
+                                        border-radius: 20px; background-color: #3481e1;
+                                        opacity: 0;
+                                    }
+                                }
+
+                                figcaption {
+                                    text-align: center;
+                                    .text_01 {
+                                        margin-top: 40px;
+                                        @include font-15();
+                                        @include font-gmark-m(); color: #fff;
+                                        em {@include font-gmark-bold();}
+                                    }
+                                    .text_02 {
+                                        @include font-gmark-m();
+                                        @include font-18();
+                                        margin-top: 30px; color: #fff;
+                                    }
+                                    .text_03 {
+                                        @include font-18();
+                                        margin-top: 15px;
+                                        color: #b9c9dd;
+                                    }
+                                }
+                            }
+
+                         
+                         
+                        }
+                        .btn_01 {
+                            margin: 60px auto 0;
+                            background-color: #fff; color: $color-100;
+
+                        }
+                    }
+                }
+
+                &.section_06 {
+                    max-width: 1920px; margin: 140px auto 0;
+                    .section_title {
+                        text-align: center;
+                        @include font-gmark-bold();
+                        em {color: $color-100; @include font-gmark-bold();}
+                        p {
+                            @include sub_text_01();
+                        }
+                    }
+
+                    .section_content {
+                        margin-top: 60px;
+                        margin-left: auto;
+                        max-width: 1750px;
+                        .swiper_edu {
+                            padding-bottom: 100px;
+                            .swiper-slide {
+                                figure {
+                                    position: relative;
+                                    &:hover {
+                                        .text_03 {
+                                            height: auto; opacity: 1;
+                                        }
+                                    }
+                                    img {}
+                                    figcaption {
+                                        @include fullsize();
+                                        position: absolute; left: 0; top: 0;
+                                        padding: 0 0 80px 40px;
+                                        display: flex; flex-direction: column; justify-content: flex-end;
+                                        p {
+                                            &.text_01 {
+                                                @include font-gmark-bold();
+                                                font-size: 28px;
+                                                font-stretch: normal;
+                                                font-style: normal;
+                                                line-height: 0.86;
+                                                letter-spacing: -0.56px;
+                                                text-align: left;
+                                                color: #fff;
+                                            }
+                                            &.text_02 {
+                                                @include font-18();
+                                                margin-top: 16px; line-height: 1.44; letter-spacing: -0.36px; color: #fff;
+                                            }
+                                            &.text_03 {
+                                                @include transition(all .15s);
+                                                margin-top: 35px;
+                                                opacity: 0;
+                                                height: 0;
+                                                a {
+                                                    margin-right: 16px;
+                                                    font-size: 18px;font-weight: 500;line-height: 1.22;letter-spacing: -0.36px;color: #fff;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .btn_edu_wrap {
+                                > div {
+                                    &.swiper-button-next { 
+                                        background: url('../images/main/ico_right_02.png')no-repeat center; 
+                                        right: 0;
+                                    }
+                                    &.swiper-button-prev {
+                                        background: url('../images/main/ico_left_02.png')no-repeat center; 
+                                        left: 0;
+                                    }
+                                }
+                            }
+                                     
+                        .btn_edu_wrap {
+                            max-width: 1580px;
+                            position: relative;
+                            bottom: -78px;
+                        }
+                        .swiper-scrollbar {
+                            height: 14px;
+                            max-width: 1400px; 
+                            position: absolute; left: 80px; bottom: 15px;
+                            background: #f4f4f4;
+                            .swiper-scrollbar-drag {
+                                background: $color-100;
+                            }
+                        }
+
+                        }
+               
+                    }
+                }
+
+                &.section_07 {
+                    margin-top: 140px;
+                    padding: 120px 0 ;
+                    background-color: #ecf3ff;
+
+                    .section_title {
+                        text-align: center;
+                        @include font-gmark-bold();
+                        em {color: $color-100; @include font-gmark-bold();}
+                        p { @include sub_text_01();}
+                    }
+
+                    .section_content {
+                        margin-top: 60px;
+                        .more_view {
+                            display: block;
+                            text-align: right;
+                            max-width: 1100px; 
+                            margin-bottom: 30px;
+                            font-size: 18px; font-weight: 500;letter-spacing: -0.36px;color: #666;
+                            i {margin-left: 18px;}
+                        }
+                        .content_wrap {
+                            display: flex; justify-content: space-between;
+                            .board_wrap {
+                                max-width: 1100px;
+                                margin-right: 30px;
+                                .box {
+                                    display: inline-block;
+                                    position: relative;
+                                    padding: 40px 0 0 30px; margin-right: 20px;
+                                    width: 342px; height: 342px;
+                                    border: 1px solid #ddd;
+                                    border-top-right-radius: 20px;
+                                    overflow: hidden;
+                                    &:last-child {margin-right: 0}
+                                    .text_01 {
+                                        @include font-gmark-l();
+                                        font-size: 14px;font-weight: 300;color: #666;
+                                    }
+                                    .text_02 {
+                                        margin-top: 28px;
+                                        font-size: 24px;font-weight: bold;letter-spacing: -0.48px;
+                                    }
+                                    hr {
+                                        width: 30px;
+                                        margin: 30px 0;
+                                    }
+                                    .text_03 {
+                                        font-size: 18px;letter-spacing: -0.36px;color: #666;
+                                    }
+                                    .board_type {
+                                        @include flexCenter();
+                                        font-size: 18px;letter-spacing: -0.36px;color: #fff;
+                                        position: absolute; right: 0; top: 0;
+                                        width: 100px; height: 50px;
+                                        background: $color-100;
+                                        border-top-right-radius: 20px; border-bottom-left-radius: 20px;
+    
+                                    }
+                                }
+                            }
+    
+                            .info_wrap {
+                                width: 460px; height: 342px; background: #fff;
+                                padding: 50px 0 0 40px;
+                                p {
+                                    &.text_01{}
+                                }
+                            }
+                        }
+                        
+
+
+
+                    }
+
+
+                }
+
+
+                
+
 
              
             }

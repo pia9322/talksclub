@@ -48,12 +48,14 @@
     <script src="../js/aos.js"></script>
     <script src="../js/gsap.min.js"></script>
     <script src="../js/ScrollTrigger.min.js"></script>
+    <script src="../js/wave.js"></script>
     <!-- <script src="../js/jquery.nice-select.min.js"></script> -->
     <!-- <script src="../js/fullpage.min.js"></script> -->
     <!-- <script src="../js/scrolloverflow.min.js.js"></script> -->
     <!-- <script src="../js/wave.js"></script> -->
     <!-- <script src="../js/lity.js"></script> -->
     <script src="https://kit.fontawesome.com/336c5ca89c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <!-- plugin -->
@@ -145,28 +147,34 @@
 
     <main id="main_page">
 
+
+        <!-- section_01 
+        member login
+        -->
         <section class="main_section section_01 fixed_layout">
-            <div class="wrap">
+            <div class="section_wrap">
                 <h4>Talks Club</h4>
-                <h1>
+
+                <h1 class="section_title">
                     매일 최고의 강사진과 떠나는 미국 어학연수
                     <br>
                     <em>1:1 TUTORING 맞춤 영어수업</em>
                 </h1>
             </div>
-            
+
             <section class="member_section">
+
                 <div class="box box_user">
-                    <div class="login">
+                    <div class="box_wrap login">
                         <!-- 
                             login/ logout
                         -->
                         <form action="" method="">
-                            <h2 class="box_title">멤버 로그인</h2>
-                            <input type="text" value="" placeholder="아이디를 입력하세요." name="아이디">
-                            <input type="text" value="" placeholder="비밀번호를 입력하세요." name="비밀번호">
-                            <input type="submit" value="로그인">
-                            <div>
+                            <h2 class="box_title">멤버 <strong>로그인</strong></h2>
+                            <input class="input_01" type="text" value="" placeholder="아이디를 입력하세요." name="아이디">
+                            <input class="input_01 margin" type="text" value="" placeholder="비밀번호를 입력하세요." name="비밀번호">
+                            <input class="input_02" type="submit" value="로그인">
+                            <div class="user_box">
                                 <p><a href="">아이디/비밀번호찾기</a></p>
                                 <p><a href="">회원가입</a></p>
                             </div>
@@ -175,23 +183,31 @@
                 </div>
 
                 <div class="box box_cs">
-                    <h2 class="box_title`">고객 상담 센터</h2>
-                    <div>
-                        <figure>
-                            <img src="" alt="">
-                            <figcaption>전화상담 예약</figcaption>
+                    <div class="box_wrap">
+                        <h2 class="box_title">고객 <strong>상담 센터</strong></h2>
+
+                        <figure class="box_01 box_line">
+                            <a href="">
+                                <img src="../images/main/ico_tel_01.png" alt="전화기">
+                                <figcaption>전화상담 예약</figcaption>
+                            </a>
                         </figure>
-                        <figure>
-                            <img src="" alt="">
-                            <figcaption>1:1 온라인 상담</figcaption>
+
+                        <figure class="box_01">
+                            <a href="">
+                                <img src="../images/main/ico_chat.png" alt="전화기">
+                                <figcaption>1:1 온라인 상담</figcaption>
+                            </a>
                         </figure>
-                        <figure>
-                            <img src="" alt="">
+
+                        <figure class="box_02">
+                            <img src="../images/main/ico_tel_02.png" alt="전화기">
                             <figcaption>
-                                <p class="text_01"></p>
-                                <p class="text_02"></p>
+                                <p class="text_01"><a href="tel:070-8248-9870">070-8248-9870</a></p>
+                                <p class="text_02">11:00 ~ 17:00 / 20:00 ~ 23:00</p>
                             </figcaption>
                         </figure>
+
                     </div>
                 </div>
                 <figure class="fixed_img">
@@ -200,8 +216,779 @@
             </section>
         </section>
 
+        <section class="main_section section_02 fixed_layout">
+            <div class="main_visual swiper-container">
+                <div class="mv_wrap swiper-wrapper">
+                    <div class="swiper-slide mv_01"></div>
+                    <div class="swiper-slide mv_02"></div>
+                    <div class="swiper-slide mv_03"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="main_section section_03">
+
+            <div class="section_wrap fixed_layout">
+
+                <div class="section_head">
+                    <img src="../images/main/kids_02.png" alt="연필들고있는 어린이">
+                    <h2 class="section_title">
+                        <p>10여년간 <strong>미국 현지 선생님만으로 화상 영어교육</strong>을 하고 있습니다</p>
+                        <strong><em>Talk Club의 다양한 서비스</em>를 받아보세요</strong>
+                    </h2>
+                </div>
+
+                <div class="section_body">
+                    <figure>
+                        <a href="">
+                            <img src="../images/main/ico_link_01.png" alt="마이페이지">
+                            <figcaption>마이페이지</figcaption>
+                        </a>
+                    </figure>
+
+                    <figure>
+                        <a href="">
+                            <img src="../images/main/ico_link_02.png" alt="무료 레벨테스트">
+                            <figcaption>무료 레벨테스트</figcaption>
+                        </a>
+                    </figure>
+
+                    <figure>
+                        <a href="">
+                            <img src="../images/main/ico_link_03.png" alt="레벨테스트결과">
+                            <figcaption>레벨테스트결과</figcaption>
+                        </a>
+                    </figure>
+
+                    <figure>
+                        <a href="">
+                            <img src="../images/main/ico_link_04.png" alt="자주하는 질문">
+                            <figcaption>자주하는 질문</figcaption>
+                        </a>
+                    </figure>
+
+                    <figure>
+                        <a href="">
+                            <img src="../images/main/ico_link_05.png" alt="수강후기">
+                            <figcaption>수강후기</figcaption>
+                        </a>
+                    </figure>
+
+                    <figure>
+                        <a href="">
+                            <img src="../images/main/ico_link_06.png" alt="수업에 필요한 표현">
+                            <figcaption>수업에 필요한 표현</figcaption>
+                        </a>
+                    </figure>
+
+                    <figure>
+                        <a href="">
+                            <img src="../images/main/ico_link_07.png" alt="톡스클럽 전용 솔루션">
+                            <figcaption>톡스클럽 전용 솔루션</figcaption>
+                        </a>
+                    </figure>
+
+                    <figure>
+                        <a href="">
+                            <img src="../images/main/ico_link_08.png" alt="사운드/영상 점검">
+                            <figcaption>사운드/영상 점검</figcaption>
+                        </a>
+                    </figure>
+
+                    <figure>
+                        <a href="">
+                            <img src="../images/main/ico_link_09.png" alt="원격제어 프로그램">
+                            <figcaption>원격제어 프로그램</figcaption>
+                        </a>
+                    </figure>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="main_section section_04 fixed_layout">
+            <div class="section_wrap">
+
+                <div class="left">
+                    <h2 class="section_title">
+
+                        <p>
+                            듣기/말하기/읽기/쓰기 등
+                            <br class="pc_only">
+                            <em>4가지를 동시에!</em>
+                        </p>
+
+                        <span>톡스클럽 실시간 온라인 화상강의와 함께라면 <em>단기간 OK!</em></span>
+
+                        <a class="btn_01" href="">View More</a>
+
+                    </h2>
+
+                </div>
+
+                <div class="right">
+
+                    <figure>
+                        <img src="../images/main/img_04_01.png" alt="">
+                        <figcaption>
+                            <p class="text_01">POINT <em>01</em></p>
+                            <p class="text_02">
+                                <em>원어민과 실시간 1:1 수업</em>
+                                <br class="pc_only">
+                                의효과 극대화
+                            </p>
+                            <p class="text_03">
+                                듣는것 뿐만 아니라 1:1 실시간 직접 보면서 정확한
+                                <br class="pc_only">
+                                발음과 표현을 배울 수 있어 수업의 효과를 극대화합니다.
+                            </p>
+                        </figcaption>
+                    </figure>
+
+                    <figure>
+                        <img src="../images/main/img_04_02.png" alt="">
+                        <figcaption>
+                            <p class="text_01">POINT <em>02</em></p>
+                            <p class="text_02">
+                                최적의 <em>화상 솔루션 제공</em>
+                            </p>
+                            <p class="text_03">
+                                뛰어난 음질과 안정성을 제공하며, 전자칠판과 인터넷
+                                <br class="pc_only">
+                                공유기능 등으로 교재를 직접 보면서 할 수 있어
+                                <br class="pc_only">
+                                수업에 더욱 집중할 수 있습니다.
+                            </p>
+                        </figcaption>
+                    </figure>
+
+                    <figure>
+                        <img src="../images/main/img_04_03.png" alt="">
+                        <figcaption>
+                            <p class="text_01">POINT <em>03</em></p>
+                            <p class="text_02">
+                                <em>저렴한 비용</em>으로 집에서 해외연수 효과
+                            </p>
+                            <p class="text_03">
+                                해외에서 원어민과 1:1 수업을 받는것과 동일한 효과를
+                                <br class="pc_only">
+                                얻으실 수 있습니다.
+                            </p>
+                        </figcaption>
+                    </figure>
+
+                    <figure>
+                        <img src="../images/main/img_04_04.png" alt="">
+                        <figcaption>
+                            <p class="text_01">POINT <em>04</em></p>
+                            <p class="text_02">
+                                화상강의를 통한 <em>인터넷 전용라인 구축</em>
+                            </p>
+                            <p class="text_03">
+                                화상강의만을 위한 인터넷 전용라인을 구축하여
+                                <br class="pc_only">
+                                최고의 품질을 자랑합니다.
+                            </p>
+                        </figcaption>
+                    </figure>
+
+                    <figure>
+                        <img src="../images/main/img_04_05.png" alt="">
+                        <figcaption>
+                            <p class="text_01">POINT <em>05</em></p>
+                            <p class="text_02">
+                                <em>최고의 강사진</em>으로 구성
+                            </p>
+                            <p class="text_03">
+                                현지명문대 출신의 학사 이상의 강사를 시험과 면접을
+                                <br class="pc_only">
+                                거쳐 엄격하게 선별합니다. 차별화된 엄격한 강사관리와
+                                <br class="pc_only">
+                                교육시스템으로 단련된 원어민 강사들이 교육을 진행합니다.
+                            </p>
+                        </figcaption>
+                    </figure>
+
+                </div>
+
+
+            </div>
+        </section>
+
+        <section class="main_section section_05">
+            <div class="point_bg"></div>
+            <div class="point_img img_01"><img src="../images/main/img_05_01.png" alt=""></div>
+            <div class="point_img img_02"><img src="../images/main/img_05_02.png" alt=""></div>
+            <div class="point_wave">
+
+            </div>
+
+            <div class="section_wrap fixed_layout">
+
+                <h2 class="section_title">
+                    <em>지금부터 시작하세요!</em>
+                    <br>
+                    <p>톡스클럽과 함께 “영어 듣고 말하기”에 자신감을 갖으세요!</p>
+                </h2>
+
+                <div class="section_content">
+
+                    <figure>
+                        <div class="img_wrap"><img src="../images/main/ico_05_01.png" alt=""></div>
+                        <figcaption>
+                            <p class="text_01">STEP <em>01</em></p>
+                            <p class="text_02">회원가입 + 레벨테스트</p>
+                            <p class="text_03">
+                                전화번호를 정확히
+                                <br class="pc_only">
+                                기입해주세요.
+                            </p>
+                        </figcaption>
+                    </figure>
+
+                    <figure>
+                        <div class="img_wrap"><img src="../images/main/ico_05_02.png" alt=""></div>
+                        <figcaption>
+                            <p class="text_01">STEP <em>02</em></p>
+                            <p class="text_02">레벨테스트</p>
+                            <p class="text_03">
+                                레벨테스트 전 헤드셋과
+                                <br class="pc_only">
+                                카메라를 준비해주세요.
+                            </p>
+                        </figcaption>
+                    </figure>
+
+                    <figure>
+                        <div class="img_wrap"><img src="../images/main/ico_05_03.png" alt=""></div>
+                        <figcaption>
+                            <p class="text_01">STEP <em>03</em></p>
+                            <p class="text_02">레벨테스트 결과 통보</p>
+                            <p class="text_03">
+                                “레벨테스트 강의실 입장”
+                                <br class="pc_only">
+                                에서 결과를 확인하세요.
+                            </p>
+                        </figcaption>
+                    </figure>
+
+                    <figure>
+                        <div class="img_wrap"><img src="../images/main/ico_05_04.png" alt=""></div>
+                        <figcaption>
+                            <p class="text_01">STEP <em>04</em></p>
+                            <p class="text_02">수강신청</p>
+                            <p class="text_03">
+                                온/오프라인을 통하여
+                                <br class="pc_only">
+                                카드/무통장 결제해주세요.
+                            </p>
+                        </figcaption>
+                    </figure>
+
+                    <figure>
+                        <div class="img_wrap"><img src="../images/main/ico_05_05.png" alt=""></div>
+                        <figcaption>
+                            <p class="text_01">STEP <em>05</em></p>
+                            <p class="text_02">수강상담</p>
+                            <p class="text_03">
+                                학습매니저와 상담하여
+                                <br class="pc_only">
+                                수강일정을 잡습니다.
+                            </p>
+                        </figcaption>
+                    </figure>
+
+                    <figure>
+                        <div class="img_wrap"><img src="../images/main/ico_05_06.png" alt=""></div>
+                        <figcaption>
+                            <p class="text_01">STEP <em>06</em></p>
+                            <p class="text_02">수업시작</p>
+                            <p class="text_03">
+                                약속된 날짜부터
+                                <br class="pc_only">
+                                수업을 시작할 수 있습니다.
+                            </p>
+                        </figcaption>
+                    </figure>
+
+
+
+                </div>
+
+                <a class="btn_01" href="#none">
+                    View More
+                </a>
+            </div>
+        </section>
+
+        <!-- section_06
+            swiper
+            관리자
+        -->
+        <section class="main_section section_06">
+
+            <div class="section_wrap">
+                <h2 class="section_title">
+                    톡스클럽의 <em>교육과정</em>
+                    <br>
+                    <p>최상의 영어교육은 수준별 학습이 중요합니다</p>
+                </h2>
+            </div>
+
+            <div class="section_content">
+                <div class="swiper-container swiper_edu">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide">
+                            <figure>
+                                <img src="../images/main/edu_01.png" alt="">
+                                <figcaption>
+
+                                    <p class="text_01">파닉스 과정</p>
+
+                                    <p class="text_02">
+                                        영어를 처음 시작하는 어린이들을 위한
+                                        <br class="pc_only">
+                                        과정. 영어 철자의 올바른 발음을 학습하여
+                                        <br class="pc_only">
+                                        정확한 리스닝과 스피킹을 토대로 마련
+                                    </p>
+
+                                    <p class="text_03">
+                                        <a href="">View More </a>
+                                        <img src="../images/main/ico_right_01.png" alt="">
+                                    </p>
+                                </figcaption>
+                            </figure>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <figure>
+                                <img src="../images/main/edu_02.png" alt="">
+                                <figcaption>
+
+                                    <p class="text_01">미국인 영어회화</p>
+
+                                    <p class="text_02">
+                                        집중 회화과정을 통해 단계별 회화 연습으로
+                                        <br class="pc_only">
+                                        기초적인 회화능력을 갖추며, 기초문법을
+                                        <br class="pc_only">
+                                        이해하고 단어와 독해 능력을 향상
+                                    </p>
+
+                                    <p class="text_03">
+                                        <a href="">View More </a>
+                                        <img src="../images/main/ico_right_01.png" alt="">
+                                    </p>
+
+                                </figcaption>
+                            </figure>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <figure>
+                                <img src="../images/main/edu_03.png" alt="">
+                                <figcaption>
+
+                                    <p class="text_01">프리토킹 과정</p>
+
+                                    <p class="text_02">
+                                        정형화된 회화교재에서 벗어나 토픽북을
+                                        <br class="pc_only">
+                                        활용하여 미국 원어민 성생님과 다양한 방면의
+                                        <br class="pc_only">
+                                        주제로 대화 하고 토론하며 영어표형 습득
+                                    </p>
+
+                                    <p class="text_03">
+                                        <a href="">View More </a>
+                                        <img src="../images/main/ico_right_01.png" alt="">
+                                    </p>
+
+                                </figcaption>
+                            </figure>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <figure>
+                                <img src="../images/main/edu_04.png" alt="">
+                                <figcaption>
+
+                                    <p class="text_01">미국 교육과정</p>
+
+                                    <p class="text_02">
+                                        개별 학원이나각자의 수업안(Lesson plan)
+                                        <br class="pc_only">
+                                        과 아이들의 학습 수용속도에 맞추어
+                                        <br class="pc_only">
+                                        커리큘럼을 짤 수 있는 맞춤형 통합 Reading
+
+                                    </p>
+
+                                    <p class="text_03">
+                                        <a href="">View More </a>
+                                        <img src="../images/main/ico_right_01.png" alt="">
+                                    </p>
+
+                                </figcaption>
+                            </figure>
+                        </div>
+
+                        <!-- copy_ sample -->
+                        <!-- copy_ sample -->
+                        <!-- copy_ sample -->
+                        <!-- copy_ sample -->
+                        <!-- copy_ sample -->
+                        <div class="swiper-slide">
+                            <figure>
+                                <img src="../images/main/edu_01.png" alt="">
+                                <figcaption>
+
+                                    <p class="text_01">파닉스 과정</p>
+
+                                    <p class="text_02">
+                                        영어를 처음 시작하는 어린이들을 위한
+                                        <br class="pc_only">
+                                        과정. 영어 철자의 올바른 발음을 학습하여
+                                        <br class="pc_only">
+                                        정확한 리스닝과 스피킹을 토대로 마련
+                                    </p>
+
+                                    <p class="text_03">
+                                        <a href="">View More </a>
+                                        <img src="../images/main/ico_right_01.png" alt="">
+                                    </p>
+                                </figcaption>
+                            </figure>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <figure>
+                                <img src="../images/main/edu_02.png" alt="">
+                                <figcaption>
+
+                                    <p class="text_01">미국인 영어회화</p>
+
+                                    <p class="text_02">
+                                        집중 회화과정을 통해 단계별 회화 연습으로
+                                        <br class="pc_only">
+                                        기초적인 회화능력을 갖추며, 기초문법을
+                                        <br class="pc_only">
+                                        이해하고 단어와 독해 능력을 향상
+                                    </p>
+
+                                    <p class="text_03">
+                                        <a href="">View More </a>
+                                        <img src="../images/main/ico_right_01.png" alt="">
+                                    </p>
+
+                                </figcaption>
+                            </figure>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <figure>
+                                <img src="../images/main/edu_03.png" alt="">
+                                <figcaption>
+
+                                    <p class="text_01">프리토킹 과정</p>
+
+                                    <p class="text_02">
+                                        정형화된 회화교재에서 벗어나 토픽북을
+                                        <br class="pc_only">
+                                        활용하여 미국 원어민 성생님과 다양한 방면의
+                                        <br class="pc_only">
+                                        주제로 대화 하고 토론하며 영어표형 습득
+                                    </p>
+
+                                    <p class="text_03">
+                                        <a href="">View More </a>
+                                        <img src="../images/main/ico_right_01.png" alt="">
+                                    </p>
+
+                                </figcaption>
+                            </figure>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <figure>
+                                <img src="../images/main/edu_04.png" alt="">
+                                <figcaption>
+
+                                    <p class="text_01">미국 교육과정</p>
+
+                                    <p class="text_02">
+                                        개별 학원이나각자의 수업안(Lesson plan)
+                                        <br class="pc_only">
+                                        과 아이들의 학습 수용속도에 맞추어
+                                        <br class="pc_only">
+                                        커리큘럼을 짤 수 있는 맞춤형 통합 Reading
+
+                                    </p>
+
+                                    <p class="text_03">
+                                        <a href="">View More </a>
+                                        <img src="../images/main/ico_right_01.png" alt="">
+                                    </p>
+
+                                </figcaption>
+                            </figure>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <figure>
+                                <img src="../images/main/edu_01.png" alt="">
+                                <figcaption>
+
+                                    <p class="text_01">파닉스 과정</p>
+
+                                    <p class="text_02">
+                                        영어를 처음 시작하는 어린이들을 위한
+                                        <br class="pc_only">
+                                        과정. 영어 철자의 올바른 발음을 학습하여
+                                        <br class="pc_only">
+                                        정확한 리스닝과 스피킹을 토대로 마련
+                                    </p>
+
+                                    <p class="text_03">
+                                        <a href="">View More </a>
+                                        <img src="../images/main/ico_right_01.png" alt="">
+                                    </p>
+                                </figcaption>
+                            </figure>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <figure>
+                                <img src="../images/main/edu_02.png" alt="">
+                                <figcaption>
+
+                                    <p class="text_01">미국인 영어회화</p>
+
+                                    <p class="text_02">
+                                        집중 회화과정을 통해 단계별 회화 연습으로
+                                        <br class="pc_only">
+                                        기초적인 회화능력을 갖추며, 기초문법을
+                                        <br class="pc_only">
+                                        이해하고 단어와 독해 능력을 향상
+                                    </p>
+
+                                    <p class="text_03">
+                                        <a href="">View More </a>
+                                        <img src="../images/main/ico_right_01.png" alt="">
+                                    </p>
+
+                                </figcaption>
+                            </figure>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <figure>
+                                <img src="../images/main/edu_03.png" alt="">
+                                <figcaption>
+
+                                    <p class="text_01">프리토킹 과정</p>
+
+                                    <p class="text_02">
+                                        정형화된 회화교재에서 벗어나 토픽북을
+                                        <br class="pc_only">
+                                        활용하여 미국 원어민 성생님과 다양한 방면의
+                                        <br class="pc_only">
+                                        주제로 대화 하고 토론하며 영어표형 습득
+                                    </p>
+
+                                    <p class="text_03">
+                                        <a href="">View More </a>
+                                        <img src="../images/main/ico_right_01.png" alt="">
+                                    </p>
+
+                                </figcaption>
+                            </figure>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <figure>
+                                <img src="../images/main/edu_04.png" alt="">
+                                <figcaption>
+
+                                    <p class="text_01">미국 교육과정</p>
+
+                                    <p class="text_02">
+                                        개별 학원이나각자의 수업안(Lesson plan)
+                                        <br class="pc_only">
+                                        과 아이들의 학습 수용속도에 맞추어
+                                        <br class="pc_only">
+                                        커리큘럼을 짤 수 있는 맞춤형 통합 Reading
+
+                                    </p>
+
+                                    <p class="text_03">
+                                        <a href="">View More </a>
+                                        <img src="../images/main/ico_right_01.png" alt="">
+                                    </p>
+
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+
+                    <div class="btn_edu_wrap">
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+
+                    <div class="swiper-scrollbar"></div>
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- section_07
+            게시판
+        -->
+        <section class="main_section section_07">
+
+            <div class="section_wrap">
+                <h2 class="section_title">
+                    톡스클럽 <em>소식</em>
+                    <br>
+                    <p>톡스클럽의 소식 및 정보를 알려드립니다</p>
+                </h2>
+            </div>
+
+            <div class="section_content fixed_layout">
+
+                <a class="more_view" href="">View More <i class="fa-solid fa-angle-right"></i></a>
+
+
+                <div class="content_wrap">
+
+                    <div class="board_wrap">
+
+                        <div class="box box_01">
+                            <p class="text_01">2021.03.09</p>
+                            <p class="text_02">3월 9일 정상 수업 합니다</p>
+                            <hr>
+                            <p class="text_03">
+                                3월 9일 수업 정상 진행합니다.
+                                <br>
+                                안녕하세요. 톡스클럽입니다. 3월 9일은
+                                <br>
+                                임시공휴일입니다만, 수업 진행에 큰 무리
+                                <br>
+                                가 없다 판단하여 정상 수업 진행하겠습니다. 
+                                <br>
+                                감사합니다.
+                            </p>
+                            <p class="board_type">공지사항</p>
+                        </div>
+
+                        <div class="box box_01">
+                            <p class="text_01">2021.03.09</p>
+                            <p class="text_02">3월 9일 정상 수업 합니다</p>
+                            <hr>
+                            <p class="text_03">
+                                3월 9일 수업 정상 진행합니다.
+                                <br>
+                                안녕하세요. 톡스클럽입니다. 3월 9일은
+                                <br>
+                                임시공휴일입니다만, 수업 진행에 큰 무리
+                                <br>
+                                가 없다 판단하여 정상 수업 진행하겠습니다. 
+                                <br>
+                                감사합니다.
+                            </p>
+                            <p class="board_type">공지사항</p>
+                        </div>
+
+                        <div class="box box_01">
+                            <p class="text_01">2021.03.09</p>
+                            <p class="text_02">3월 9일 정상 수업 합니다</p>
+                            <hr>
+                            <p class="text_03">
+                                3월 9일 수업 정상 진행합니다.
+                                <br>
+                                안녕하세요. 톡스클럽입니다. 3월 9일은
+                                <br>
+                                임시공휴일입니다만, 수업 진행에 큰 무리
+                                <br>
+                                가 없다 판단하여 정상 수업 진행하겠습니다. 
+                                <br>
+                                감사합니다.
+                            </p>
+                            <p class="board_type">공지사항</p>
+                        </div>
+
+                    </div>
+
+                    <div class="info_wrap">
+                        <p class="text_01"><em>입금</em>계좌안내</p>
+                        <p class="text_02">무통장 입금 시 확인해주세요.</p>
+                        <p class="text_03">
+                            <span>계좌번호</span>
+                            <span>478701-01-227622</span>
+                        </p>
+                        <p class="text_04">
+                            <span>예금주</span>
+                            <span>KB 국민은행 (예금주 : 장재우)</span>
+                        </p>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+        </section>
+
     </main>
 
+    <script src="../js/common.js"></script>
+    <script>
+        // gsap.registerPlugin(ScrollTrigger);
+
+        gsap.to(".fixed_img", {
+            scrollTrigger: {
+                trigger: '.main_page',
+                scrub: .4,
+            },
+            y: -100
+        });
+
+        gsap.to(".point_img.img_01", {
+            scrollTrigger: {
+                trigger: '.section_05',
+                scrub: 1,
+            },
+            y: -200
+        });
+
+        gsap.to(".point_img.img_02", {
+            scrollTrigger: {
+                trigger: '.section_05',
+                scrub: 1,
+            },
+            y: 200
+        });
+
+        // var top_wave = new Wavify('#wave_01', {
+        //     height: 100,
+        //     bones: 3,
+        //     amplitude: 80,
+        //     speed: .15,
+        //     color: '#fff'
+        // });
+        // wave
+    </script>
 </body>
 
 </html>

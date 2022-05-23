@@ -1023,8 +1023,8 @@ body {
                     background-color: #ecf3ff;
 
                     .section_title {
-                        text-align: center;
                         @include font-gmark-bold();
+                        text-align: center; line-height: 1;
                         em {color: $color-100; @include font-gmark-bold();}
                         p { @include sub_text_01();}
                     }

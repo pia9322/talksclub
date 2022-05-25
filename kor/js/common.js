@@ -96,6 +96,16 @@ $(function () {
         //         $('.swiper-progress-bar').eq(0).addClass('animate');
         //     },
         // }
+        breakpoints: {
+            1580: {
+              slidesPerView: 3.2,  //브라우저가 768보다 클 때
+              spaceBetween: 20,
+            },
+            1200: {
+              slidesPerView: 2.5,  //브라우저가 1024보다 클 때
+              spaceBetween: 15,
+            },
+          },
     });
 
 
@@ -349,8 +359,8 @@ $(function () {
 
     function btnParty() {
         let click = true;
-
-        document.querySelector(".btn_party").addEventListener("click", function(e) {
+        
+        document.querySelector(".fixed_img").addEventListener("click", function(e) {
             if (click) {
                 click = !click;
 

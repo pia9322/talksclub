@@ -340,6 +340,25 @@ $(function () {
                 console.log('ERROR_02')
             })
     };
+
+
+    function btnParty() {
+        let click = true;
+
+        document.querySelector(".btn_party").addEventListener("click", function(e) {
+            if (click) {
+                click = !click;
+
+                party.confetti(this, {
+                    count: party.variation.range(100, 100),
+                });
+
+                setTimeout(function () {
+                    click = true;
+                }, 3000)
+            }        
+        });
+    }
     
 
 
@@ -352,5 +371,6 @@ $(function () {
     // page function
     // pageCheck();
     // common_js_end
+    btnParty()
     console.log('common_js_end');
 });

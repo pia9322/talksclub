@@ -114,8 +114,6 @@ $(function () {
     //     headerHei = $('#header').height();
 
 
-
-
     
     // header hover event
     function headerHover(target01, target02) {
@@ -254,6 +252,13 @@ $(function () {
         //     (subNaviEvent == LinkActive.eq(idx).text()) ? $(this).addClass('active') : null;
         // });
     };
+
+
+    function toggleClickEvent_01(target_01, target_02){
+        $(target_01).click(function(){
+            $(target_02).toggleClass('active')
+        })
+    } 
     
 
     function headerLogo() {
@@ -362,6 +367,7 @@ $(function () {
     
 
 
+
     // header function
     // headerScroll()
     // headerHover('.header_center > li', '.depth_01');
@@ -370,6 +376,8 @@ $(function () {
     // headerRight();
     // page function
     // pageCheck();
+
+    toggleClickEvent_01('.quick_btn', '#quick_menu')
     // common_js_end
     btnParty()
     console.log('common_js_end');

@@ -480,12 +480,19 @@ body {
                     width: 350px; min-width: 350px;
                 }
                 &.header_center {
+                    display: flex; align-items: center; height: 100%;
                     > ul {
+                        @include fullsize();
                         display: flex; align-items: center;
                         > li {
+                            display: flex; align-items: center;
+                            height: 100%;
+                            &.active {
+                                > a {color: $color-100;}
+                            }
                             &:last-child {margin-right: 0;}
-                            i {width: 4px; height: 4px; background: #ddd; border-radius: 100%; margin: 0 30px;}
-                            a { font-size: 18px; letter-spacing: -0.36px;
+                            > i {width: 4px; height: 4px; background: #ddd; border-radius: 100%; margin: 0 30px;}
+                            > a { font-size: 18px; letter-spacing: -0.36px;
                                 color: #333;
                                 &.active {
                                     color: $color-100; font-weight: bold;
@@ -508,21 +515,22 @@ body {
         }
 
         .header_full {
-            position: absolute; left: 0; top: calc(100% - 1px);
+            position: absolute; left: 0; top: 100%;
             background: #fff;
             z-index: 10;
             width: 100%; height: 200px; 
             border-bottom: 4px solid $color-100;
-            display: none;
+     /*        display: none;
             &.active {
                 display: block;
-            }
+            } */
             .header_full_wrap {
                 @include fullsize();
                 padding-left: 178px;
                 .header_full_list {
                     @include fullsize();
                     display: flex;
+                    /* &.active {display: flex;} */
                     .title {
                         width: 350px; height: 100%; min-width: 350px;
                         border-right: 1px solid #ddd;
@@ -622,7 +630,7 @@ body {
 
     #quick_menu {
         @include transition(all .3s);
-        position: fixed; right: 0; top: 50%; transform: translate(85%,-50%);
+        position: fixed; right: 0; top: 50%; transform: translate(90%,-50%);
         z-index: 9998;
         width: 180px; 
         padding: 40px 0 40px 30px;
@@ -1159,6 +1167,7 @@ body {
                                         font-size: 14px;font-weight: 300;color: #666;
                                     }
                                     .text_02 {
+                                        color: #333;
                                         margin-top: 28px;
                                         font-size: 24px;font-weight: bold;letter-spacing: -0.48px;
                                     }

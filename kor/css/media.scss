@@ -1,4 +1,3 @@
-@import url("./common.css");
 
 
 /* color-100 : cc*/
@@ -126,546 +125,838 @@ $color-100 : #0161da;
 
 @media screen and (max-width: 1580px) {
 
-    
-// var
-@mixin header-height {height: 80px;}
-@mixin font-40 { font-size: 38px;}
-@mixin font-32 { font-size: 30px;}
-@mixin font-18 { font-size: 18px;}
-@mixin font-15 { font-size: 14px;}
-@mixin font-14 { font-size: 13px;}
+        
+    // var
+    @mixin header-height {height: 80px;}
+    @mixin font-40 { font-size: 38px;}
+    @mixin font-32 { font-size: 30px;}
+    @mixin font-18 { font-size: 18px;}
+    @mixin font-15 { font-size: 14px;}
+    @mixin font-14 { font-size: 13px;}
 
-@mixin sub_text_01 {
-    @include font-18(); 
-    font-family: 'Noto Sans KR'; margin-top: 15px;
-}
-
-
-// ==================================== header, footer ====================================
-body {
-    #header {
-        @include header-height();
-        .header_wrap {
-            padding: 0 2.5%;
-            justify-content: space-between;
-            >nav {
-                &.header_left {width: 120px; min-width: auto;}
-                &.header_center {
-                    > ul {
-                        > li {
-                            i { margin: 0 10px;}
-                            a { font-size: 16px; }
-                        }
-                    }
-                }
-
-                &.header_right {
-                    margin-left: 0;
-                    > ul {
-                        display: flex; align-items: center;
-                        > li {
-                            a { font-size: 13px;}
-                            // 여기부터다시
-                            i { margin: 0 7px;}
-                        }
-                    }
-                }
-            }
-        }
-
-        // 나중에
-        .header_full {
-            position: absolute; left: 0; top: calc(100% - 1px);
-            width: 100%; height: 200px; 
-            border-bottom: 4px solid $color-100;
-            &.active {display: block; }
-            .header_full_wrap {
-                padding-left: 2.5%;
-                .header_full_list {
-                    @include fullsize();
-                    display: flex;
-                    .title {
-                        width: 350px; height: 100%; min-width: 350px;
-                        border-right: 1px solid #ddd;
-                        .title_wrpa {
-                            padding: 50px 0 0 0;
-                            h2 {
-                                @include font-gmark-bold();
-                                font-size: 36px; font-weight: bold; line-height: 1; letter-spacing: -1.44px; color: #333;
-                            }
-                            p { 
-                                margin-top: 20px;
-                                font-size: 16px; line-height: 1.38; letter-spacing: -0.32px; color: #666; }
-                        }
-                       
-                    }
-                    .content {
-                        .content_wrap  {
-                            padding: 50px 0 0 38px;
-                            display: flex; flex-wrap: wrap;
-                            li {
-                                width: 180px; padding-bottom: 10px; border-bottom: 1px solid #ddd; margin-right: 20px; 
-                                margin-bottom: 40px;
-                                a { font-size: 18px; letter-spacing: -0.36px; }
-                                &:last-child {margin-right: 0;}
-                                &.active { border-bottom: 1px solid $color-100; 
-                                    a {
-                                        color: $color-100; 
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        // 나중에
-
+    @mixin sub_text_01 {
+        @include font-18(); 
+        font-family: 'Noto Sans KR'; margin-top: 15px;
     }
 
-    // 나중에
-    #footer {
-        .footer_wrap {
-            display: flex; flex-wrap: wrap;
-            padding: 60px 2.5%;
-            .box {
-                &.box_01 {
-                    width: calc(50% - 15px); 
-                    margin: 0 10px;
-                    .title {
-                        // margin-bottom: 22px;
-                        // font-size: 14px;
-                    }
-                    .content {
+
+    // ==================================== header, footer ====================================
+    body {
+        #header {
+            @include header-height();
+            .header_wrap {
+                padding: 0 2.5%;
+                justify-content: space-between;
+                >nav {
+                    &.header_left {width: 120px; min-width: auto;}
+                    &.header_center {
                         > ul {
                             > li {
-                                .text_01 {  width: 100px; margin-right : 10px; font-size: 13px;  }
-                                .text_02 {  font-size: 13px; }
+                                i { margin: 0 10px;}
+                                a { font-size: 16px; }
                             }
                         }
+                    }
 
+                    &.header_right {
+                        margin-left: 0;
+                        > ul {
+                            display: flex; align-items: center;
+                            > li {
+                                a { font-size: 13px;}
+                                // 여기부터다시
+                                i { margin: 0 7px;}
+                            }
+                        }
                     }
                 }
+            }
 
-                &.box_02 {
-                    margin-top: 25px;
-                    align-items: flex-start;
-                    .footer_sns {
-                        margin-top: 10px;
-                        display: flex;
-                        li {
-                            margin-right: 16px;
-                            &:last-child {margin-right: 0;}
-                            &:hover {
-                                img {opacity: .7; }
+            // 나중에
+            .header_full {
+                width: 100%; height: auto; 
+                &.active {display: block; }
+                .header_full_wrap {
+                    padding-left: 2.5%;
+                    .header_full_list {
+                        .title {
+                            $h_f_width : 300px;
+                            min-width: $h_f_width; width: $h_f_width;
+                            .title_wrpa {
+                                padding: 50px 0;
+                                h2 {
+                                    font-size: 30px;
+                                }
+                                p {  }
                             }
-                            img {@include transition(all .3s)}
+                        
+                        }
+                        .content {
+                            .content_wrap  {
+                                padding: 50px 0 50px 38px;
+                                display: flex; flex-wrap: wrap;
+                                li {
+                                    padding-bottom: 5px; margin: 0 15px 20px;
+                                    a { font-size: 16px;}
+                                }
+                            }
                         }
                     }
-                    .footer_info {
-                        margin-top: 10px;
-                        text-align: right;
-                        font-size: 14px; letter-spacing: -0.28px;color: #666;
+                }
+            }
+            // 나중에
+
+        }
+
+        // 나중에
+        #footer {
+            .footer_wrap {
+                display: flex; flex-wrap: wrap;
+                padding: 60px 2.5%;
+                .box {
+                    &.box_01 {
+                        width: calc(50% - 15px); 
+                        margin: 0 10px;
+                        .title {
+                            // margin-bottom: 22px;
+                            // font-size: 14px;
+                        }
+                        .content {
+                            > ul {
+                                > li {
+                                    .text_01 {  width: 100px; margin-right : 10px; font-size: 13px;  }
+                                    .text_02 {  font-size: 13px; }
+                                }
+                            }
+
+                        }
+                    }
+
+                    &.box_02 {
+                        margin-top: 25px;
+                        align-items: center;
+                        .footer_sns {
+                            margin-top: 20px;
+                            display: flex;
+                            li {
+                                margin-right: 16px;
+                                &:last-child {margin-right: 0;}
+                                &:hover {
+                                    img {opacity: .7; }
+                                }
+                                img {@include transition(all .3s)}
+                            }
+                        }
+                        .footer_info {
+                            margin-top: 10px;
+                            text-align: center;
+                            font-size: 14px; letter-spacing: -0.28px;color: #666;
+                        }
                     }
                 }
             }
         }
+        // 나중에
     }
-    // 나중에
-}
-// ==================================== header, footer ====================================
+    // ==================================== header, footer ====================================
 
 
-// ==================================== page css ====================================
-// ==================================== page css ====================================
-// ==================================== page css ====================================
+    // ==================================== page css ====================================
+    // ==================================== page css ====================================
+    // ==================================== page css ====================================
 
-body {
-    main {
-        &#main_page {
-            .main_section {
-                
-                .section_title {font-size: 36px; }
+    body {
+        main {
+            &#main_page {
+                .main_section {
+                    
+                    .section_title {font-size: 36px; }
 
-                &.section_01 {
-                    margin-top: 60px;
-                    padding: 0 2.5%;
-                    > .section_wrap {
-                        h4 {font-size: 18px; }
-                        .section_title {
-                            margin-top: 10px;
+                    &.section_01 {
+                        margin-top: 60px;
+                        padding: 0 2.5%;
+                        > .section_wrap {
+                            h4 {font-size: 18px; }
+                            .section_title {
+                                margin-top: 10px;
+                            }
                         }
-                    }
-                    // 1200px modify
-                    /* 
-                    .member_section {
-                        position: absolute; right: 0; top: 0; 
-                        width: 710px; height: 450px;
-                        display: flex;
-                        .box {
-                            width: 310px; height: 310px;
-                            border-radius: 25px;
+                        // 1200px modify
+                        /* 
+                        .member_section {
+                            position: absolute; right: 0; top: 0; 
+                            width: 710px; height: 450px;
+                            display: flex;
+                            .box {
+                                width: 310px; height: 310px;
+                                border-radius: 25px;
 
-                            .box_title {
-                                @include font-gmark-m(); font-size: 24px; line-height: 1; color: #fff; text-align: center;
-                                margin-bottom: 30px;
-                                strong { @include font-gmark-bold() }  
-                            }
-
-                            &.box_user {
-                                margin-top: 75px;
-                                background-color: #0161da;
-                                border-bottom-right-radius: 0;
-                                padding: 40px 25px;
-                                input {
-                                    width: 100%; height: 45px;
-                                    border: none;
-                                    &.input_01 {
-                                        padding: 15px 17px;  
-                                        @include font-15(); color: #aaa;
-                                        &.margin {margin-top: 4px}
-                                    }
-                                    &.input_02 {
-                                        @include font-18(); font-weight: bold;
-                                        margin-top: 10px;
-                                        background-color: #003578; color: #ccdff8;
-                                    }
+                                .box_title {
+                                    @include font-gmark-m(); font-size: 24px; line-height: 1; color: #fff; text-align: center;
+                                    margin-bottom: 30px;
+                                    strong { @include font-gmark-bold() }  
                                 }
-                                .user_box {
-                                    @include font-15(); 
-                                    display: flex; justify-content: space-between;
-                                    margin-top: 14px;
-                                    a {color: #cae7f1;}
-                                }
-                            }
 
-                            &.box_cs {
-                                margin-top: 125px;
-                                background-color: #01afee;
-                                border-bottom-left-radius: 0;
-                                padding: 50px 30px;
-                                .box_wrap {
-                                    display: flex; flex-wrap: wrap;
-                                    .box_title {width: 100%;}
-
-                                    figure {
-                                        &.box_01{
-                                            width: 50%;
-                                            text-align: center;
-                                            figcaption {
-                                                @include font-15();
-                                                color: #fff;
-                                                margin-top: 12px;
-                                            }
-                                            &.box_line {
-                                                border-right: 1px solid #aadef1;
-                                            }
+                                &.box_user {
+                                    margin-top: 75px;
+                                    background-color: #0161da;
+                                    border-bottom-right-radius: 0;
+                                    padding: 40px 25px;
+                                    input {
+                                        width: 100%; height: 45px;
+                                        border: none;
+                                        &.input_01 {
+                                            padding: 15px 17px;  
+                                            @include font-15(); color: #aaa;
+                                            &.margin {margin-top: 4px}
                                         }
-                                        &.box_02{
-                                            width: 100%;
-                                            margin-top: 20px; padding-top: 20px;
-                                            display: flex; align-items: center;
-                                            border-top: 1px solid #aadef1;
-                                            figcaption {
-                                                margin-left: 12px;
-                                                .text_01 {
-                                                    a {
-                                                        @include font-gmark-bold();
-                                                        font-size: 20px; color: #fff;
+                                        &.input_02 {
+                                            @include font-18(); font-weight: bold;
+                                            margin-top: 10px;
+                                            background-color: #003578; color: #ccdff8;
+                                        }
+                                    }
+                                    .user_box {
+                                        @include font-15(); 
+                                        display: flex; justify-content: space-between;
+                                        margin-top: 14px;
+                                        a {color: #cae7f1;}
+                                    }
+                                }
+
+                                &.box_cs {
+                                    margin-top: 125px;
+                                    background-color: #01afee;
+                                    border-bottom-left-radius: 0;
+                                    padding: 50px 30px;
+                                    .box_wrap {
+                                        display: flex; flex-wrap: wrap;
+                                        .box_title {width: 100%;}
+
+                                        figure {
+                                            &.box_01{
+                                                width: 50%;
+                                                text-align: center;
+                                                figcaption {
+                                                    @include font-15();
+                                                    color: #fff;
+                                                    margin-top: 12px;
+                                                }
+                                                &.box_line {
+                                                    border-right: 1px solid #aadef1;
+                                                }
+                                            }
+                                            &.box_02{
+                                                width: 100%;
+                                                margin-top: 20px; padding-top: 20px;
+                                                display: flex; align-items: center;
+                                                border-top: 1px solid #aadef1;
+                                                figcaption {
+                                                    margin-left: 12px;
+                                                    .text_01 {
+                                                        a {
+                                                            @include font-gmark-bold();
+                                                            font-size: 20px; color: #fff;
+                                                        }
+                                                    }
+                                                    .text_02 {
+                                                        @include font-14();
+                                                        letter-spacing: -0.3px;
+                                                        color: #96cee3;
                                                     }
                                                 }
-                                                .text_02 {
-                                                    @include font-14();
-                                                    letter-spacing: -0.3px;
-                                                    color: #96cee3;
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                            } 
+
+                            .fixed_img {
+                                position: absolute; right: 0; top: 0;
+                            }
+                        }
+                        */
+                    } 
+
+                    &.section_02 {
+                        margin-top: 100px;
+                        .main_visual {
+                            height: 400px;
+                        }
+                    }
+
+                    &.section_03 {
+                        padding: 60px 2.5%;
+                        margin-top: 60px; 
+                        > .section_wrap {
+                            .section_head {
+                                .section_title {
+                                    p {
+                                        // font-size: 18px;
+                                    }
+
+                                    strong {
+                                        margin-top: 10px;
+                                    }
+                                }
+                            }
+
+                            .section_body {
+                                margin-top: 20px; 
+                                figure {
+                                    figcaption {
+                                        @include font-15();
+                                        margin-top: 15px;
+                                    }
+                                }
+                            }
+                            
+                        }
+                    }
+
+                    &.section_04 {
+                        margin-top: 100px;
+                        padding: 0 2.5%;
+                        .section_wrap {
+                            justify-content: center;
+                            .left {
+                                top: 20px;
+                                min-width: 350px;
+                                .section_title {
+                                    span { margin-top: 20px; font-size: 18px;}
+                                    .btn_01 {margin-top: 40px;}
+                                }
+                            }
+                            .right {
+                                flex-direction: column;
+                                figure {
+                                    // &:first-child {margin-top: 0;}
+                                    margin-top: 160px;
+                                    &:first-child {margin-top: 0;}
+                                    img {}
+
+                                    figcaption {
+                                        padding: 30px 0 0 0;
+                                        .text_01 {
+                                            @include font-18();
+                                            color: $color-100; letter-spacing: -0.36px;
+                                            em {@include font-gmark-bold();}
+                                        }
+                                        .text_02 {
+                                            margin-top: 18px;
+                                            @include font-gmark-m();
+                                            font-size: 24px;
+                                            em {@include font-gmark-bold();}
+                                        }
+                                        .text_03 {
+                                            margin-top: 30px;
+                                            font-size: 18px;line-height: 1.33;letter-spacing: -0.36px;color: #666;
+                                        }
+                                    }
+                                }
+                            }
+                            
+                        }
+                        
+                    }
+
+                    &.section_05 {
+                        .point_bg { height: 100px;}
+                        .point_img { max-width: 300px;}
+                
+                        .section_wrap {
+                            padding: 80px 0;
+                            .section_title {
+                                p {
+                                    @include font-18();
+                                    margin-top: 15px;
+                                }
+                            }
+                            .section_content {
+                                flex-wrap: wrap;
+                                figure {
+                                    width: 33%;
+                                    margin: 20px 0;
+
+                                    figcaption {
+                                        .text_01 {
+                                            margin-top: 30px;
+                                            @include font-15();
+                                        }
+                                        .text_02 {
+                                            @include font-18();
+                                            margin-top: 20px;
+                                        }
+                                        .text_03 {
+                                            @include font-18();
+                                            margin-top: 10px;
+                                        }
+                                    }
+                                }
+
+                            
+                            
+                            }
+                            .btn_01 { }
+                        }
+                    }
+
+                    &.section_06 {
+                        margin: 100px auto 0;
+                        padding: 0 2.5%;
+                        .section_title {
+                            p {
+                                @include sub_text_01();
+                            }
+                        }
+
+                        .section_content {
+                            margin-top: 60px;
+                            .swiper_edu {
+                                padding-bottom: 80px;
+                                .swiper-slide {
+                                    figure {
+                                        position: relative;
+                                        img {}
+                                        figcaption {
+                                            padding: 0 0 30px 30px;
+                                            p {
+                                                &.text_01 {
+                                                    font-size: 24px;
                                                 }
+                                                &.text_02 {
+                                                    @include font-18();
+                                                    margin-top: 14px;
+                                                }
+                                                &.text_03 {
+                                                    margin-top: 20px;
+                                                    opacity: 1; height: auto;
+                                                    a { margin-right: 16px; }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                .btn_edu_wrap {
+                                    > div {
+                                        &.swiper-button-next { 
+                                            background: url('../images/main/ico_right_02.png')no-repeat center; 
+                                            right: 0;
+                                        }
+                                        &.swiper-button-prev {
+                                            background: url('../images/main/ico_left_02.png')no-repeat center; 
+                                            left: 0;
+                                        }
+                                    }
+                                }
+                                        
+                            .btn_edu_wrap {
+                                max-width: 1580px;
+                                position: relative;
+                                bottom: -60px;
+                            }
+                            .swiper-scrollbar {
+                                width: 90%; height: 10px;
+                                left: 50%; transform: translateX(-50%);
+                            }
+
+                            }
+                
+                        }
+                    }
+
+                    &.section_07 {
+                        margin-top: 100px;
+                        padding: 80px 2.5%;
+                        .section_title {
+                            p { @include sub_text_01();}
+                        }
+
+                        .section_content {
+                            margin-top: 60px;
+                            .more_view {
+                                max-width: 100%; 
+                                margin-bottom: 20px;
+                            }
+                            .content_wrap {
+                                flex-direction: column;
+                                .board_wrap {
+                                    max-width: 100%;
+                                    .box {
+                                        padding: 20px; margin: 10px 0;
+                                        width: 100%; height: auto;
+                                        .text_02 {
+                                            margin-top: 15px;
+                                            // font-size: 24px;
+                                        }
+                                        hr {
+                                            width: 30px; margin: 15px 0;
+                                        }
+                                        .text_03 {
+                                            // font-size: 18px;
+                                            @include board_text();
+                                            br {display: none;}
+                                        }
+                                        .board_type { }
+                                    }
+                                }
+        
+                                .info_wrap {
+                                    width: 100%; height: auto;
+                                    margin: 10px 0; padding: 40px;
+                                    p {
+                                        &.text_01{
+                                            // font-size: 24px;
+                                        }
+                                        &.text_02 {
+                                            // margin-top: 10px; font-size: 18px;
+                                        }
+                                        &.text_03 {
+                                            span {
+                                                // font-size: 18px; 
+                                                // &.point {font-size: 28px;}
+                                            }
+                                            &.margin-top-40 {margin-top: 40px;}
+                                            &.margin-top-18 {margin-top: 18px;}
+                                        }
+
+                                        &.text_04 {
+                                            display: flex;
+                                            a {
+                                                // font-size: 18px;
+                                                &:nth-child(2) {margin-left: -1px;}
                                             }
                                         }
                                     }
                                 }
                             }
                             
-                        } 
 
-                        .fixed_img {
-                            position: absolute; right: 0; top: 0;
+
+
                         }
+
+
                     }
-                    */
-                } 
 
-                &.section_02 {
-                    margin-top: 100px;
-                    .main_visual {
-                        height: 400px;
-                    }
-                }
 
-                &.section_03 {
-                    padding: 60px 2.5%;
-                    margin-top: 60px; 
-                    > .section_wrap {
-                        .section_head {
-                            .section_title {
-                                p {
-                                    // font-size: 18px;
-                                }
-
-                                strong {
-                                    margin-top: 10px;
-                                }
-                            }
-                        }
-
-                        .section_body {
-                            margin-top: 20px; 
-                            figure {
-                                figcaption {
-                                    @include font-15();
-                                    margin-top: 15px;
-                                }
-                            }
-                        }
-                        
-                    }
-                }
-
-                &.section_04 {
-                    margin-top: 100px;
-                    padding: 0 2.5%;
-                    .section_wrap {
-                        justify-content: center;
-                        .left {
-                            top: 20px;
-                            min-width: 350px;
-                            .section_title {
-                                span { margin-top: 20px; font-size: 18px;}
-                                .btn_01 {margin-top: 40px;}
-                            }
-                        }
-                        .right {
-                            flex-direction: column;
-                            figure {
-                                // &:first-child {margin-top: 0;}
-                                margin-top: 160px;
-                                img {}
-
-                                figcaption {
-                                    padding: 30px 0 0 0;
-                                    .text_01 {
-                                        @include font-18();
-                                        color: $color-100; letter-spacing: -0.36px;
-                                        em {@include font-gmark-bold();}
-                                    }
-                                    .text_02 {
-                                        margin-top: 18px;
-                                        @include font-gmark-m();
-                                        font-size: 24px;
-                                        em {@include font-gmark-bold();}
-                                    }
-                                    .text_03 {
-                                        margin-top: 30px;
-                                        font-size: 18px;line-height: 1.33;letter-spacing: -0.36px;color: #666;
-                                    }
-                                }
-                            }
-                        }
-                        
-                    }
                     
-                }
-
-                &.section_05 {
-                    .point_bg { height: 100px;}
-                    .point_img { max-width: 300px;}
-               
-                    .section_wrap {
-                        padding: 80px 0;
-                        .section_title {
-                            p {
-                                @include font-18();
-                                margin-top: 15px;
-                            }
-                        }
-                        .section_content {
-                            flex-wrap: wrap;
-                            figure {
-                                width: 33%;
-                                margin: 20px 0;
-
-                                figcaption {
-                                    .text_01 {
-                                        margin-top: 30px;
-                                        @include font-15();
-                                    }
-                                    .text_02 {
-                                        @include font-18();
-                                        margin-top: 20px;
-                                    }
-                                    .text_03 {
-                                        @include font-18();
-                                        margin-top: 10px;
-                                    }
-                                }
-                            }
-
-                         
-                         
-                        }
-                        .btn_01 { }
-                    }
-                }
-
-                &.section_06 {
-                    margin: 100px auto 0;
-                    padding: 0 2.5%;
-                    .section_title {
-                        p {
-                            @include sub_text_01();
-                        }
-                    }
-
-                    .section_content {
-                        margin-top: 60px;
-                        .swiper_edu {
-                            padding-bottom: 80px;
-                            .swiper-slide {
-                                figure {
-                                    position: relative;
-                                    img {}
-                                    figcaption {
-                                        padding: 0 0 60px 30px;
-                                        p {
-                                            &.text_01 {
-                                                font-size: 24px;
-                                            }
-                                            &.text_02 {
-                                                @include font-18();
-                                                margin-top: 14px;
-                                            }
-                                            &.text_03 {
-                                                margin-top: 20px;
-                                                opacity: 1; height: auto;
-                                                a { margin-right: 16px; }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                            .btn_edu_wrap {
-                                > div {
-                                    &.swiper-button-next { 
-                                        background: url('../images/main/ico_right_02.png')no-repeat center; 
-                                        right: 0;
-                                    }
-                                    &.swiper-button-prev {
-                                        background: url('../images/main/ico_left_02.png')no-repeat center; 
-                                        left: 0;
-                                    }
-                                }
-                            }
-                                     
-                        .btn_edu_wrap {
-                            max-width: 1580px;
-                            position: relative;
-                            bottom: -60px;
-                        }
-                        .swiper-scrollbar {
-                            width: 90%; height: 10px;
-                            left: 50%; transform: translateX(-50%);
-                        }
-
-                        }
-               
-                    }
-                }
-
-                &.section_07 {
-                    margin-top: 100px;
-                    padding: 80px 2.5%;
-                    .section_title {
-                        p { @include sub_text_01();}
-                    }
-
-                    .section_content {
-                        margin-top: 60px;
-                        .more_view {
-                            max-width: 100%; 
-                            margin-bottom: 20px;
-                        }
-                        .content_wrap {
-                            flex-direction: column;
-                            .board_wrap {
-                                max-width: 100%;
-                                .box {
-                                    padding: 20px; margin: 10px 0;
-                                    width: 100%; height: auto;
-                                    .text_02 {
-                                        margin-top: 15px;
-                                        // font-size: 24px;
-                                    }
-                                    hr {
-                                        width: 30px; margin: 15px 0;
-                                    }
-                                    .text_03 {
-                                        // font-size: 18px;
-                                    }
-                                    .board_type { }
-                                }
-                            }
-    
-                            .info_wrap {
-                                width: 100%; height: auto;
-                                margin: 10px 0; padding: 40px;
-                                p {
-                                    &.text_01{
-                                        // font-size: 24px;
-                                    }
-                                    &.text_02 {
-                                        // margin-top: 10px; font-size: 18px;
-                                    }
-                                    &.text_03 {
-                                        span {
-                                            // font-size: 18px; 
-                                            // &.point {font-size: 28px;}
-                                        }
-                                        &.margin-top-40 {margin-top: 40px;}
-                                        &.margin-top-18 {margin-top: 18px;}
-                                    }
-
-                                    &.text_04 {
-                                        display: flex;
-                                        a {
-                                            // font-size: 18px;
-                                            &:nth-child(2) {margin-left: -1px;}
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        
-
-
-
-                    }
-
-
-                }
 
 
                 
-
-
-             
+                }
             }
         }
     }
+
+
+    // ==================================== page css ====================================
+    // ==================================== page css ====================================
+    // ==================================== page css ====================================
+
 }
 
+@media screen and (max-width: 1200px) {
+    
+    // var
+    @mixin header-height {height: 70px;}
+    @mixin font-40 { font-size: 34px;}
+    @mixin font-32 { font-size: 28px;}
+    @mixin font-18 { font-size: 16px;}
+    @mixin font-15 { font-size: 14px;}
+    @mixin font-14 { font-size: 13px;}
 
-// ==================================== page css ====================================
-// ==================================== page css ====================================
-// ==================================== page css ====================================
+    @mixin sub_text_01 {
+        @include font-18(); 
+        font-family: 'Noto Sans KR'; margin-top: 15px;
+    }
+
+
+    
+    // ==================================== header, footer ====================================
+    body {
+        #header {
+            @include header-height();
+            .header_wrap {
+                >nav {
+                    &.header_left {width: 110px;}
+                    &.header_center {
+                        > ul {
+                            > li {
+                                i { margin: 0 7px;}
+                                a { font-size: 15px; }
+                            }
+                        }
+                    }
+                }
+            }
+
+
+        }
+
+    }
+    // ==================================== header, footer ====================================
+
+
+    
+    // ==================================== page css ====================================
+    // ==================================== page css ====================================
+    // ==================================== page css ====================================
+
+    body {
+        main {
+            &#main_page {
+                .main_section {
+                    
+                    .section_title {font-size: 30px; }
+
+                        
+                    &.section_01 {
+                        .member_section {
+                            display: flex; justify-content: flex-end;
+                            .box {
+                                .box_title {
+                                    font-size: 22px;
+                                    margin-bottom: 20px;
+                                }
+
+                                &.box_user {
+                                    margin-top: 90px;
+                                    padding: 30px 20px;
+                                    input {
+                                        height: 40px;
+                                        &.input_01 {
+                                            padding: 15px;  
+                                            @include font-15(); 
+                                        }
+                                        &.input_02 {
+                                            @include font-18();
+                                        }
+                                    }
+                                    .user_box {
+                                        @include font-15(); 
+                                    }
+                                }
+
+                                &.box_cs {
+                                    margin-top: 140px;
+                                    .box_wrap {
+                                        figure {
+                                            &.box_01{
+                                                figcaption {
+                                                    @include font-15();
+                                                }
+                                            }
+                                            &.box_02{
+                                                figcaption {
+                                                    .text_01 {
+                                                        a {
+                                                            font-size: 18px;
+                                                        }
+                                                    }
+                                                    .text_02 {
+                                                        @include font-14();
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                            } 
+
+                            .fixed_img {
+                                max-width: 225px;
+                            }
+                        }
+                    } 
+
+                    &.section_02 {
+                        margin-top: 200px;
+                    }
+
+                    &.section_03 {
+                        > .section_wrap {
+                            .section_head {
+                                .section_title {
+                                    p {
+                                    }
+
+                                    strong {
+                                    }
+                                }
+                            }
+
+                            .section_body {
+                                figure {
+                                    figcaption {
+                                        @include font-15();
+                                    }
+                                }
+                            }
+                            
+                        }
+                    }
+
+                    &.section_04 {
+                        .section_wrap {
+                            .right {
+                                margin: 0 40px 0 50px;
+                                figure {
+                                    width: 470px;
+                                    figcaption {
+                                        .text_01 {
+                                            @include font-18();
+                                        }
+                                        .text_02 {font-size: 22px;}
+                                        .text_03 {margin-top: 20px; font-size: 16px;}
+                                    }
+                                }
+                            }
+                            
+                        }
+                        
+                    }
+
+                    &.section_05 {
+                        .point_img { 
+                            &.img_02 {max-width: 200px;}
+                        }
+                
+                        .section_wrap {
+                            padding: 60px 0;
+                            .section_title {
+                                p {@include font-18();}
+                            }
+                            .section_content {
+                                figure {
+                                    figcaption {
+                                        .text_01 {
+                                            margin-top: 20px;
+                                            @include font-15();
+                                        }
+                                        .text_02 {
+                                            @include font-18();
+                                            margin-top: 10px;
+                                        }
+                                        .text_03 {
+                                            @include font-18();
+                                            margin-top: 5px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &.section_06 {
+                        margin: 80px auto 0;
+                        padding: 0 2.5%;
+                        .section_title {
+                            p {
+                                @include sub_text_01();
+                            }
+                        }
+
+                        .section_content {
+                            margin-top: 60px;
+                            .swiper_edu {
+                                padding-bottom: 80px;
+                                .swiper-wrapper {
+                                    .swiper-slide {
+                                        figure {
+                                            img {}
+                                            figcaption {
+                                                padding: 0 0 30px 20px;
+                                                p {
+                                                    &.text_01 {
+                                                        font-size: 22px;
+                                                    }
+                                                    &.text_02 {@include font-18();}
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                                        
+                            .btn_edu_wrap {
+                            }
+                            .swiper-scrollbar {
+                            }
+
+                            }
+                
+                        }
+                    }
+
+                    &.section_07 {
+                        margin-top: 80px;
+                        .section_title {
+                            p { @include sub_text_01();}
+                        }
+
+                        .section_content {
+                            margin-top: 60px;
+                            .more_view {
+                                max-width: 100%; 
+                                margin-bottom: 20px;
+                            }
+                            .content_wrap {
+                                .board_wrap {
+                                    .box {
+                                        padding: 30px;
+                                        .text_02 {
+                                            font-size: 22px;
+                                        }
+                                        .text_03 {
+                                            font-size: 16px;
+                                        }
+                                    }
+                                }
+        
+                                .info_wrap {
+                                    padding: 30px;
+                                    p {
+                                        &.text_01{
+                                            font-size: 22px;
+                                        }
+                                        &.text_02 {
+                                            font-size: 16px;
+                                        }
+                                        &.text_03 {
+                                            span {
+                                                font-size: 16px;
+                                                &.point {font-size: 25px;}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            
+
+
+
+                        }
+
+
+                    }
+
+
+                    
+
+
+                
+                }
+            }
+        }
+    }
+
+
+    // ==================================== page css ====================================
+    // ==================================== page css ====================================
+    // ==================================== page css ====================================
 
 }
 

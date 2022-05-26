@@ -112,6 +112,33 @@ $(function () {
 
     // ======================================= swiper ======================================= 
 
+
+
+
+    
+
+    // ======================================== click Event ========================================
+    function toggleClickEvent_01(target_01, target_02){
+        $(target_01).click(function(){
+            $(target_02).toggleClass('active')
+        })
+    } 
+
+    // ======================================== hover Event ========================================
+    function toggleHoverEvent_01(target_01, target_02){
+     
+        $(target_01).hover(function(){
+            let idx = $(this).index()/2
+            console.log(idx)
+
+            $('.header_full').addClass('active');
+            $(target_02+':eq('+idx+')').addClass('active')
+        })
+    } 
+
+
+
+
     let nowLocation = location.href
         // subPageName = $('.visual_text .text_01').text();
 
@@ -126,13 +153,26 @@ $(function () {
 
     
     // header hover event
-    function headerHover(target01, target02) {
+    function headerHover_slide(target01, target02) {
         $(target01).hover(function () {
             $(this).children(target02).stop().slideDown("fast");
         }, function () {
             $(this).children(target02).stop().slideUp("fast");
         });
     };
+
+
+
+    function headerHover_fade(target01, target02) {
+        $(target01).hover(function () {
+            $(this).children(target02).stop().fadeIn(200);
+            $(this).addClass('active');
+        }, function () {
+            $(this).children(target02).stop().fadeOut(200);
+            $(this).removeClass('active');
+        });
+    };
+    
 
     
     // header click event
@@ -264,17 +304,10 @@ $(function () {
     };
 
 
-    function toggleClickEvent_01(target_01, target_02){
-        $(target_01).click(function(){
-            $(target_02).toggleClass('active')
-        })
-    } 
-    
-
-    function headerLogo() {
-        $('#header_left a img').attr('src', '../images/ico/logo_black.svg');
-        headerScroll();
-    };
+    // function headerLogo() {
+    //     $('#header_left a img').attr('src', '../images/ico/logo_black.svg');
+    //     headerScroll();
+    // };
 
     // ======================================== default_json ========================================
     
@@ -357,6 +390,8 @@ $(function () {
     };
 
 
+
+    // ======================================== play ========================================
     function btnParty() {
         let click = true;
         
@@ -365,7 +400,7 @@ $(function () {
                 click = !click;
 
                 party.confetti(this, {
-                    count: party.variation.range(100, 100),
+                    count: party.variation.range(100, 40),
                 });
 
                 setTimeout(function () {
@@ -387,7 +422,12 @@ $(function () {
     // page function
     // pageCheck();
 
+    $('.header_full').hide()
+    headerHover_fade('.header_center .depth_01', '.header_full')
+    
     toggleClickEvent_01('.quick_btn', '#quick_menu')
+    
+
     // common_js_end
     btnParty()
     console.log('common_js_end');

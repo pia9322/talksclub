@@ -116,6 +116,7 @@ ion-icon { width: 100%; height: 100%; }
 
 
 /* --------------------Class-------------------- */
+.event_btn {cursor: pointer;}
 .pc_only {display: block;}
 .ta_only {display: none;}
 .mo_only {display: none;}

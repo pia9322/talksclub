@@ -754,6 +754,46 @@ body {
                                     margin-top: 14px;
                                     a {color: #cae7f1;}
                                 }
+                                form {display: none;}
+                                #state_login {
+                                    .info {
+                                        a { @include transition(all .15s);}
+
+                                        &.info_01 { 
+                                            @include font-gmark-m();
+                                            color: #fff; font-size: 24px; letter-spacing: -0.96px; text-align: center; line-height: 1.42;
+                                            margin-bottom: 15px;
+                                            strong {@include font-gmark-bold();}
+                                        }
+                                        &.info_02 {
+                                            @include font-18();
+                                            display: flex;
+                                            flex-direction: column;
+                                            a {
+                                                @include flexCenter();
+
+                                                height: 54px;
+                                                background: #fff; border-radius: 27px;
+                                                margin-bottom: 8px; color: #333;
+                                                &:last-child {margin-bottom: 15px;}
+                                                img {margin-right: 10px; max-height: 24px;}
+                                                
+                                                &:hover {background: rgba($color: #fff, $alpha: .7);}
+                                            }
+                                        }
+                                        &.info_03 {
+                                            display: flex; justify-content: space-between;
+                                            a {
+                                                font-size: 15px; letter-spacing: -0.3px;color: #cae7f1;
+                                                &:hover {
+                                                    color: #fff;
+
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
                             }
 
                             &.box_cs {

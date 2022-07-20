@@ -354,7 +354,7 @@
                     </div>
                 </div>
                 <figure class="fixed_img event_btn">
-                    <img src="../images/main/kids_01.png" alt="알파벳과 아이" >
+                    <img src="../images/main/kids_01.png" alt="알파벳과 아이">
                 </figure>
             </section>
         </section>
@@ -1106,6 +1106,42 @@
         </section>
 
 
+        <script>
+            // gsap.registerPlugin(ScrollTrigger);
+
+            gsap.to(".fixed_img", {
+                scrollTrigger: {
+                    trigger: '.main_page',
+                    scrub: .4,
+                },
+                y: -200
+            });
+
+            gsap.to(".point_img.img_01", {
+                scrollTrigger: {
+                    trigger: '.section_05',
+                    scrub: 1,
+                },
+                y: -200
+            });
+
+            gsap.to(".point_img.img_02", {
+                scrollTrigger: {
+                    trigger: '.section_05',
+                    scrub: 1,
+                },
+                y: 200
+            });
+
+            // var top_wave = new Wavify('#wave_01', {
+            //     height: 100,
+            //     bones: 3,
+            //     amplitude: 80,
+            //     speed: .15,
+            //     color: '#fff'
+            // });
+            // wave
+        </script>
     </main>
 
     <footer class="fixed_layout" id="footer">
@@ -1188,42 +1224,7 @@
     </footer>
 
     <script src="../js/common.js"></script>
-    <script>
-        // gsap.registerPlugin(ScrollTrigger);
 
-        gsap.to(".fixed_img", {
-            scrollTrigger: {
-                trigger: '.main_page',
-                scrub: .4,
-            },
-            y: -200
-        });
-
-        gsap.to(".point_img.img_01", {
-            scrollTrigger: {
-                trigger: '.section_05',
-                scrub: 1,
-            },
-            y: -200
-        });
-
-        gsap.to(".point_img.img_02", {
-            scrollTrigger: {
-                trigger: '.section_05',
-                scrub: 1,
-            },
-            y: 200
-        });
-
-        // var top_wave = new Wavify('#wave_01', {
-        //     height: 100,
-        //     bones: 3,
-        //     amplitude: 80,
-        //     speed: .15,
-        //     color: '#fff'
-        // });
-        // wave
-    </script>
 </body>
 
 </html>

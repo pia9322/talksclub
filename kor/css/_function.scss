@@ -1,0 +1,192 @@
+// ====================================DEFAULT MIXIN====================================
+
+
+$color-100 : #0161da;
+
+
+
+@mixin fullsize {width: 100%; height: 100%;}
+@mixin flexCenter { display: flex; justify-content: center; align-items: center; }
+
+@mixin layoutBoxColor {border: 2px solid #f00;}
+
+
+
+@mixin absolute-center {position: absolute;left: 50%;top: 50%;transform: translate(-50%, -50%);}
+@mixin absolute-x($left, $top) {position: absolute;left: $left;top: $top;transform: translateX(-$left);}
+@mixin absolute-y($left, $top) {position: absolute;left: $left;top: $top;transform: translateY(-$top);}
+@mixin absolute-left($left, $top) {
+    position: absolute;
+    left: $left; top: $top;
+    transform: translateX(-$left);
+}
+@mixin absolute-top($left, $top) {
+    position: absolute;
+    left: $left; top: $top;
+    transform: translateY(-$top);
+}
+
+@mixin transition($x) {transition: $x;-webkit-transition: $x;-moz-transition: $x;-ms-transition: $x;-o-transition: $x;}
+@mixin border-radius($radius) { -webkit-border-radius: $radius; -moz-border-radius: $radius; -ms-border-radius: $radius; border-radius: $radius; }
+@mixin board_text {white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
+@mixin ellipsis($line: 1) {
+    @if ($line == 1) {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    } @else {
+      display: -webkit-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: $line;
+    }
+}
+  @mixin clearfix {
+    &::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+  }
+
+@mixin clipText($num) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $num;
+    overflow: hidden;
+}
+
+@mixin treeLine_x {
+    background: linear-gradient(to left, $color-100 50%, rgba(255, 255, 255, 0) 0%) repeat-x;
+    background-size: 7px 1px;
+}
+
+@mixin treeLine_y {
+    background: linear-gradient(to top, $color-100 50%, rgba(255, 255, 255, 0) 0%) repeat-y;
+    background-size: 1px 7px;
+}
+@mixin boxTitle {
+    cursor: pointer;
+    @include transition(.15s);
+    display: flex; align-items: center;
+    height: 60px;
+    border-radius: 80px; background-color: #fff;
+}
+
+@mixin textNum {
+    @include transition(.15s);
+    @include font-M();
+    @include flexCenter();
+    margin-left: 6px;
+    width: 50px; height: 50px;
+    background-color: $color-100; border-radius: 100%;
+}
+@mixin textTit {margin-left: 14px;font-size: 18px; font-weight: 500;letter-spacing: -1.44px;}
+
+@mixin map-circle($size) { content: ''; position: absolute; left: 50%;  transform: translateX(-50%); width: $size; height: $size; border-radius: 100%;}
+
+
+// ====================================DEFAULT MIXIN====================================
+
+
+
+
+// ====================================JJ MIXIN====================================
+@mixin fixed-layout {max-width: 1580px; width: 100%; margin: 0 auto; }
+@mixin fixed-layout-subpage {max-width: 1360px;  width: 100%; margin: 0 auto;}
+@mixin not_fixed_layout {max-width: 100%; width: 100%; margin: 0 auto;}
+@mixin header-height {height: 100px;}
+
+// Margin
+// Top
+@mixin marginTop-120 {margin-top: 120px;}
+@mixin marginTop-100 {margin-top: 100px;}
+@mixin marginTop-80 {margin-top: 80px;}
+@mixin marginTop-70 {margin-top: 70px;}
+@mixin marginTop-40 {margin-top: 40px;}
+@mixin marginTop-30 {margin-top: 30px;}
+
+
+// Bottom
+@mixin marginBot-120 {margin-bottom: 120px;}
+
+
+// Padding
+@mixin padding_1480 {padding: 0 5%;}
+
+@mixin paddingTop-70 {padding-top: 70px;}
+@mixin paddingTop-40 {padding-top: 40px;}
+
+
+
+// FONT
+@mixin font-M {font-family: 'Montserrat';}
+@mixin font-R {font-family: 'Roboto';}
+@mixin font-Nanum {font-family: 'Nanum Brush Script';}
+@mixin font-gmark-bold {font-family: 'gmarket-b'; font-weight: bold;}
+@mixin font-gmark-m {font-family: 'gmarket-m'; font-weight: 500;}
+@mixin font-gmark-l {font-family: 'gmarket-l';}
+
+@mixin font-40 { font-size: 40px;}
+@mixin font-32 { font-size: 32px;}
+@mixin font-18 { font-size: 18px;}
+@mixin font-15 { font-size: 15px;}
+@mixin font-14 { font-size: 14px;}
+
+
+@mixin sub_text_01 {
+    font-family: 'Noto Sans KR'; margin-top: 18px;
+    @include font-18();font-weight: 400; line-height: 1.22;letter-spacing: -0.36px;color: #666;
+}
+
+@mixin dots_01($wid, $hei) {
+  display: inline-block;
+  width: $wid; height: $hei; background-color: $color-100; border-radius: 100%
+}
+
+
+// ====================================JJ MIXIN====================================
+
+
+
+
+/* 
+  DEFLUE CSS
+*/
+body {
+  
+  #arrow{
+    &.arrow_01 {
+        display: block;
+        margin-left: 10px;
+        width: 8px; height: 8px;
+        border-right: 1px solid $color-100; border-top: 1px solid $color-100;
+        transform: translateX(-30px) rotate(45deg); margin-bottom: 2px;
+    }
+    &.arrow_02 {
+        display: block;
+        margin-left: 10px;
+        width: 8px; height: 8px;
+        min-width: 8px; min-height: 8px;
+        border-right: 1px solid $color-100; border-top: 1px solid $color-100;
+        transform: rotate(45deg);
+    }
+  }
+
+  #cursor_01 {
+    $ballWH: 15px;
+    width: $ballWH; height: $ballWH;
+    position: fixed; top: 0; left: 0; z-index: 9999;
+    background: $color-100; border-radius: 50%; 
+    pointer-events: none;
+    mix-blend-mode: difference;
+    transition: width .3s, height .3s;
+    &.active {
+        $ballWH: 30px;
+        opacity: .7;
+        width: $ballWH; height: $ballWH;
+    }
+  }
+
+}

@@ -1,0 +1,734 @@
+/* 
+    메인 CSS 는 ID값을 따라감
+
+    ==== 고정 ==== 
+    #table_header - searchBox
+    #table_footer - table_pageing
+    #table_default - 모든 table List 묶음은 해당 id로 고정
+
+
+
+    ==== 유동 ====
+    #table_list 
+    #table_gallery
+
+    #&Class (ex.type_01 ... ) type 변경으로 전환 
+*/
+
+/* 
+  <div id="table_default">
+
+
+    <div id="table_type">
+        <a href="?t_type=list" class=" <? echo $t_type == 'list' ? 'active' : null; ?>">게시판형</a>
+        <a href="?t_type=thumb" class=" <? echo $t_type == 'thumb' ? 'active' : null; ?>">썸네일형</a>
+    </div>
+
+    <div id="table_header">
+        <!-- <div class="table_company_select"></div> -->
+
+        <div class="table_text_search">
+            <div class="search_form">
+                <fieldset>
+                    <legend>검색명</legend>
+                    <form class="form_02_selectbox" action="" method="get">
+                        <input type="hidden" name="s_key" value="f_title">
+                        <input type="hidden" name="f_div" value="<?= $f_div ?>">
+                        <input type="hidden" name="t_type" value="<?= $t_type ?>">
+                        <select class="" name="f_class">
+                            <option value="">구분 선택</option>
+                            <?
+                            include "../include/bbs_class.html"
+                            ?>
+                        </select>
+                        <input type="text" name="s_value" value="<?= $s_value ?>" placeholder="제목을 입력해주세요.">
+                        <input type="submit" value="검색">
+                    </form>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+
+<?
+
+if ($t_type == 'list') {
+?>
+                        <div class="type_01" id="table_list">
+                            <div class="table_warp">
+                                <!-- #table_list 일때만 노출 -->
+                                <div class="table_title" id="table_title">
+                                    <p class="text text_01 mo_del">No</p>
+                                    <p class="text text_02 ">구분</p>
+                                    <p class="text text_03">제목</p>
+                                    <p class="text text_04 mo_del">작성일</p>
+                                </div>
+
+
+                                <?
+                                ############ [데이터 가져오기] ############
+                                $query = "select * from ht_bbs $where order by f_date desc limit $start, $show_per_page";
+                                // echo "$query";
+                                if ($result = mysqli_query($dbconn, $query)) {
+                                    if ($result->num_rows) {
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                ?>
+                                            <figure class="list">
+                                                <div class="img_wrap"><a href="./media_more.html?f_uid=<?= $row[f_uid] ?>&f_div=<?= $f_div ?>&page=<?= $page ?>&f_class=<?= $f_class ?>&s_key=<?= $s_key ?>&s_value=<?= $s_value ?>"><img src="../../upload/<?= $row[f_file_0] ?>" alt=""></a></div>
+                                                <figcaption class="text_wrap">
+                                                    <p class="text text_01 mo_del"><?= $article_no ?></p>
+                                                    <p class="text text_02 ">[<?= $row[f_class] ?>]</p>
+                                                    <p class="text text_03 text_left"><a href="./media_more.html?f_uid=<?= $row[f_uid] ?>&f_div=<?= $f_div ?>&page=<?= $page ?>&f_class=<?= $f_class ?>&s_key=<?= $s_key ?>&s_value=<?= $s_value ?>"><?= $row[f_title] ?></a></p>
+                                                    <p class="text text_04 mo_del"><?= substr($row[f_date], 0, 10) ?></p>
+                                                </figcaption>
+                                            </figure>
+                                <?
+                                            $article_no--;
+                                        }
+                                    } else {
+                                    }
+                                    mysqli_free_result($result);
+                                }
+                                ?>
+
+                            </div>
+                        </div>
+
+                    <? } else if ($t_type = 'thumb') { ?>
+
+                        <div class="type_01" id="table_gallery">
+                            <div class="table_warp">
+                                <!-- #table_list 일때만 노출 -->
+
+
+
+
+                                <?
+                                ############ [데이터 가져오기] ############
+                                $query = "select * from ht_bbs $where order by f_date desc limit $start, $show_per_page";
+                                // echo "$query";
+                                if ($result = mysqli_query($dbconn, $query)) {
+                                    if ($result->num_rows) {
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                ?>
+                                            <figure class="list">
+                                                <div class="img_wrap"><a href="./media_more.html?f_uid=<?= $row[f_uid] ?>&f_div=<?= $f_div ?>&page=<?= $page ?>&f_class=<?= $f_class ?>&s_key=<?= $s_key ?>&s_value=<?= $s_value ?>"><img src="../../upload/<?= $row[f_file_0] ?>" alt=""></a></div>
+                                                <figcaption class="text_wrap">
+                                                    <p class="text text_01 hover">[<?= $row[f_class] ?>] <a href="./media_more.html?f_uid=<?= $row[f_uid] ?>&f_div=<?= $f_div ?>&page=<?= $page ?>&f_class=<?= $f_class ?>&s_key=<?= $s_key ?>&s_value=<?= $s_value ?>"><?= $row[f_title] ?></a></p>
+                                                    <p class="text text_02"><?= substr($row[f_date], 0, 10) ?></p>
+                                                </figcaption>
+                                            </figure>
+                                        <?
+                                            $article_no--;
+                                        }
+                                    } else {
+                                        ?>
+
+                                <?
+                                    }
+                                    mysqli_free_result($result);
+                                }
+                                ?>
+
+                            </div>
+                        </div>
+
+                    <? } ?>
+
+
+
+                    <div class="table_footer" id="table_footer">
+                        <?
+                        ############ [페이징] ############
+                        include "../include/pageNavi.html";
+                        $all_query = "f_div=$f_div&f_class=$f_class&s_key=$s_key&s_value=$s_value&t_type=$t_type";
+                        pageNavi(1, $bbs_skin, $show_per_page, $show_page_block, $total_article, $all_query, $page);
+                        ?>
+                    </div>
+                </div>
+
+*/
+
+
+body {
+    #table_default {
+        margin-top: 70px;
+        
+        .cell_type {
+            @include flexCenter(); margin: auto;
+            width: 80px; height: 30px;
+            font-size: 14px; color: #fff;
+            &.type_01 {
+                background-color: $color-100;
+            }
+            &.type_02 {
+                background-color: #000;
+            }
+        }
+
+
+        #table_type {
+            display: flex; justify-content: flex-end;
+            a {
+                padding: 5px 10px; border-radius: 10px; border: 1px solid #ddd;
+                margin-right: 10px;
+                font-size: 16px; 
+                &.active, &:hover { border: 1px solid $color-100; color: #fff; background: $color-100}
+                &:last-child { margin-right: 0;}
+            }
+        }
+        #table_header {
+            margin: 2rem auto ;
+            display: flex; justify-content: space-between;
+            // search
+            .table_text_search {
+                display: flex; align-items: center;
+                width: 100%;
+                .search_form {
+                    width: 100%;
+                    fieldset {
+                        width: 100%;
+                        legend {display: none;}
+                        display: flex; align-items: center;
+
+                        // form
+                        .form_02_selectbox {
+                            width: 100%;
+                            display: flex;
+                            // flex-wrap: wrap;
+                            $height: 40px;
+                            select, .nice-select {
+                                border: 1px solid #ddd;
+                                width: 150px; height: $height;
+                                margin-right: 6px; 
+                                // padding-left: 14px;
+                            }
+
+                            input[type=text] {
+                                // height: $height; width: 220px;
+                                height: $height; width: calc(100% - 72px);
+                                border: 1px solid #ddd;
+                                margin-right: 6px;
+                                padding: 0 10px;
+                            }
+
+                            input[type=submit] {
+                                height: $height;
+                                background: #000;
+                                color: #fff;
+                                border: none;
+                                padding: 1rem 2rem;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+
+        //table_footer 
+        #table_footer {
+            margin-top: 100px;
+            @include flexCenter();
+
+            .num_box {
+                a {
+                    position: relative;
+                    font-size: 16px; font-weight: 300; color: #333;
+                    margin: 0 5px;
+                    &::after {
+                        content: '';
+                        @include transition(.15s);
+                        position: absolute; left: 50%; top: -10px; transform: translateX(-50%);
+                        width: 5px; height: 5px; background-color: $color-100; border-radius: 100%;
+                        opacity: 0;
+                    }
+
+                    
+                    // active
+                    &.active {
+                        color: $color-100; font-weight: bold;
+                        &::after { opacity: 1; }
+                    }
+                }
+
+                &.type_circle_01 {
+                    display: flex;
+                    a {
+                        @include flexCenter();
+                        @include transition(all .15s);
+                        width: 40px; height: 40px;
+                        color: #888;
+                        border-radius: 100%;
+                        &:hover:not(.active) {
+                            opacity: .7;
+                        }
+                        &:hover, &.active {
+                            background-color: $color-100; 
+                            color: #fff;
+                        }
+                        &::after {display: none;}
+                    }
+                }
+            }
+
+            .btn_box {
+                display: flex;
+                a {
+                    display: flex; align-items: center; justify-content: center;
+                    width: 20px; height: 20px;
+                    margin: 0 5px; color: #666;
+                }
+
+            }
+        }
+
+        // gallery type type_01
+        #table_gallery {
+            // @include marginTop-70();
+            
+            #table_title { 
+                display: flex; width: 100%;  height: 60px;
+                border-top: 1px solid #111; border-bottom: 1px solid #ddd;
+                .text {
+                    font-size: 18px; font-weight: bold;
+                }
+            }
+         
+            &.type_01 {
+                .table_warp {
+                    display: flex; flex-wrap: wrap;
+                    .list {
+                        width: calc(25% - 15px);
+                        margin: 0 20px 20px 0;
+                        border: 1px solid #ddd;
+                        &:hover {
+                            border: 1px solid $color-100;
+                        }
+                        &:nth-child(4n) { margin: 0 0 20px 0;}
+    
+                        .img_wrap {
+                            width: 100%; height: 340px;
+                            background-color: #D9D9D9; overflow: hidden;
+                            img {@include fullsize(); object-fit: cover; }
+                        }
+                        
+                        .text_wrap {
+                            padding: 10px 20px;
+                            .text {
+                                &.text_01 {
+                                    margin-top: 20px; 
+                                    font-size: 18px; color: #111; 
+                                }
+                                &.text_02 {
+                                    margin-top: 5px;
+                                    font-size: 14px; color: #888;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+        
+
+        #table_list {
+            &.type_01 {
+                .text {
+                    text-align: center;
+                    @include flexCenter();
+                    flex-shrink: 0;
+
+                    /* 
+                        list 크기조절
+                    */
+                    
+                    &.text_01 {width: 5%;}
+                    &.text_02 {width: 10%;}
+                    &.text_03 {width: 75%; }
+                    &.text_04 {width: 10%;}
+                    &.text_left {text-align: left; justify-content: left;}
+                }
+                
+                /* 
+                    리스트형 table 제목
+                */
+
+                #table_title { 
+                    display: flex; width: 100%;  height: 60px;
+                    border-top: 1px solid #111; border-bottom: 1px solid #ddd;
+                    .text {
+                        font-size: 18px; font-weight: bold;
+                    }
+                }
+
+                
+                /* 
+                    리스트형 table content
+                */
+                
+                .table_warp {
+                    display: flex; flex-wrap: wrap;
+                    .list {
+                        width: 100%; border-bottom: 1px solid #ddd;
+                        .img_wrap {display: none;}
+                        .text_wrap {
+                            display: flex;
+                            .text {
+                                padding: 20px 0;
+                                font-size: 18px;
+                                &.hover:hover {color: $color-100;}
+                                &.text_01 {}
+                                &.text_03 {font-size: 18px; color: #111;}
+                            }
+                            svg {width: 12px;}
+                        }
+                    }
+                }
+            }
+
+        }
+
+    
+
+        
+
+        @media (max-width:1420px) {
+                
+            &#table_default {
+                margin-top: 50px;
+                #table_header {
+                    // search
+                    .table_text_search {
+                        .search_form {
+                            fieldset {
+                                // form
+                                .form_02_selectbox {
+                                    select, .nice-select { width: auto;  }
+                                }
+                            }
+                        }
+                    }
+    
+                }
+                #table_footer {
+                    .num_box {
+                        a { font-size: 14px; }
+                    }
+    
+                    .btn_box {
+                        a {width: 15px; height: 15px;}
+                    }
+                }
+
+                #table_gallery {
+                    // @include marginTop-70();
+                    &.type_01 {
+                        .table_warp {
+                            display: flex; flex-wrap: wrap;
+                            .list {
+                                width: calc(33.3333% - 14px);
+                                margin: 0 20px 20px 0;
+                                &:nth-child(4n) { margin: 0 20px  20px 0;}
+                                &:nth-child(3n) { margin: 0 0 20px 0;}
+        
+                                .img_wrap {height: 300px;}
+                                
+                                .text_wrap {
+                                    .text {
+                                        &.text_01 { font-size: 16px; }
+                                        &.text_02 { font-size: 13px;}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+
+                #table_list {
+                    &.type_01 {
+                        .text {
+                            /* 
+                                list 크기조절
+                            */
+                        }
+                        
+                        #table_title { 
+                            height: 50px;
+                            .text { font-size: 16px; }
+                        }
+
+                        .table_warp {
+                            .list {
+                                .text_wrap {
+                                    .text {
+                                        padding: 10px 0;
+                                        font-size: 14px;
+                                        &.text_03 {font-size: 16px;}
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+
+                
+            }
+        }
+
+
+        // table_media 1000
+        @media (max-width:1000px) {
+                
+            &#table_default {
+                margin-top: 40px;
+                #table_header {
+                    .table_company_select {
+                        display: none;
+        
+                        .search_form {
+                            fieldset {
+                                legend {}
+        
+                                .form_01_title {}
+        
+                                .form_01_selectbox {
+                                    select {}
+                                }
+                            }
+                        }
+                    }
+        
+                    .table_text_search {
+                        margin-top: 3rem;
+                        width: 100%;
+        
+                        .search_form {
+                            width: 100%;
+        
+                            fieldset {
+                                width: 100%;
+        
+                                .form_02_selectbox {
+                                    display: flex;
+                                    width: 100%;
+        
+                                    select {}
+        
+                                    input[type=text] {
+                                        margin-left: 1.5rem;
+                                        flex: 2;
+                                    }
+        
+                                    input[type=submit] {
+                                        margin-left: 1.5rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+        
+                }
+                
+                #table_type {
+                    a {
+                        padding: 5px 7px;
+                        margin-right: 7px;
+                        font-size: 13px; 
+                    }
+                }
+                
+                #table_gallery {
+                    // @include marginTop-70();
+                    &.type_01 {
+                        .table_warp {
+                            display: flex; flex-wrap: wrap;
+                            .list {
+                                width: calc(50% - 5px);
+                                margin: 0 10px 20px 0;
+                                &:nth-child(4n) { margin: unset;}
+                                &:nth-child(3n) { margin: 0 10px 20px 0;}
+                                &:nth-child(2n) { margin: 0 0 20px 0;}
+        
+                                .img_wrap {height: 175px;}
+                                .text_wrap  {
+                                    .text {
+                                        &.text_01 {
+                                            margin-top: 0;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                #table_list {
+                    &.type_01 {
+                        .text {
+                            /* 
+                                list 크기조절
+                            */
+                        }
+                        
+                        #table_title { 
+                            height: 50px;
+                            .text { font-size: 14px; }
+                        }
+
+                        .table_warp {
+                            .list {
+                                .text_wrap {
+                                    .text {
+                                        padding: 10px 0;
+                                        font-size: 14px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+
+    
+
+        }
+
+        // table_media 500
+        @media (max-width:500px) {
+                
+            &#table_default {
+                
+                #table_list {
+                    &.type_01 {
+                        .text {
+                            /* 
+                                list 크기조절
+                            */
+                            &.text_02 {
+                                width: 20%;
+                            }
+                            &.text_03 {
+                                width: 80%;
+                                a {
+                                    @include board_text();
+                                }
+                            }
+                            &.mo_del {display: none;}
+                        }
+                    }
+
+                }
+            }
+
+            #table_header {
+                // search
+                .table_text_search {
+                    .search_form {
+                        fieldset {
+                            // form
+                            .form_02_selectbox {
+                                select, .nice-select { width: auto;  }
+                                input[type=text] {margin: 0;}
+                            }
+                        }
+                    }
+                }
+            }
+
+            #table_footer {margin-top: 60px;}
+
+        }
+
+    }
+
+    /* table 상세보기 more 게시판 */
+    #table_more {
+        .table_notice {
+            ul {
+                &.table_title {
+                    border-top: 2px solid #1e3c5a; border-bottom: 1px solid #e6e6e6;
+                    font-size: 18px;
+    
+                    li {
+                        display: flex; flex-wrap: wrap;
+                        p {
+                            padding: 20px;
+                            &.table_notice_title { 
+                                width: 80%;
+                                font-weight: bold; 
+                            }
+                            &.table_notice_data {
+                                width: 20%;
+                                font-size: 14px;
+                                text-align: right;
+                            }
+                            &.file_download { 
+                                width: 100%; padding: 5px 20px;
+                                &:hover {
+                                    a {color: $color-100; }
+                                    svg {fill: $color-100;}
+                                }
+                            }
+                        }
+                    }
+                }
+                &.table_body {
+                    padding: 30px 20px;
+                    border-bottom: 1px solid #e5e5e5;
+                    font-size: 18px;
+                    img {max-width: 100%; height: auto;}
+                }
+            }
+        }
+
+        .table_notice_more {
+            display: flex; justify-content: flex-end; 
+            margin-top: 40px;
+            >a {
+                @include transition(all .3s);
+                display: inline-block;
+                padding: 10px 20px;
+                font-size: 14px; color: #fff; background: $color-100;
+            }
+        }
+        
+    }
+    
+    @media (max-width:1000px) {
+        /* table 상세보기 more 게시판 */
+        #table_more {
+            .table_notice {
+                ul {
+                    &.table_title {
+                        font-size: 16px;
+                        li {
+                            flex-direction: column;
+                            p {
+                                padding: 10px 15px;
+                                &.table_notice_title { width: 100%;}
+                                &.table_notice_data { width: 100%; font-size: 13px;  text-align: right;}
+                            }
+                        }
+                    }
+                    &.table_body {
+                        overflow: auto;
+                        padding: 20px 15px; font-size: 14px;
+                    }
+                }
+            }
+
+            .table_notice_more {
+                margin-top: 20px;
+                >a { font-size: 13px;}
+            }
+            
+        }
+        
+    }
+}

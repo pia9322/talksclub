@@ -392,10 +392,9 @@ $(function () {
 
 
     // ======================================== play ========================================
-    function btnParty() {
+    async function btnParty() {
         let click = true;
-        
-        document.querySelector(".fixed_img").addEventListener("click", function(e) {
+        $(".event_btn").click(function(e) {
             if (click) {
                 click = !click;
 
@@ -403,12 +402,10 @@ $(function () {
                     count: party.variation.range(100, 40),
                 });
 
-                setTimeout(function () {
-                    click = true;
-                }, 3000)
+                setTimeout(() => {click = true;}, 3000);
             }        
         });
-    }
+    };
     
 
 

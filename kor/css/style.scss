@@ -6,25 +6,6 @@
 
 // ====================================default css====================================
 body {
-    /* 
-        lity.js
-        close_btn primary $color
-    */
-    .lity-close {color: $color-100 !important; }
-    .fixed_layout {@include fixed-layout();}
-    // a link hover effect
-    a.a_link {@include transition(.15s);&:hover { color: $color-100 !important; }}
-    .non_link {cursor: default;}
-    
-
-    // icon
-    .ico {
-        display: inline-block; vertical-align: middle;
-        // dots
-        &.ico_01 {width: 4px; height: 4px; background-color: #666; border-radius: 100%} 
-    }
-
-    // default
     .btn_01 {
         @include transition(.15s);
         @include flexCenter();
@@ -32,7 +13,21 @@ body {
         font-size: 18px; font-weight: normal; color: #fff; 
         border: 1px solid $color-100; background-color: $color-100; border-radius: 25px;
     
+        span {
+            @include font-M();
+            @include transition(.15s);
+            @include flexCenter();
+            width: 100%; height: 100%;
+        }
+    }
 
+    .btn_02 {
+        @include transition(.15s);
+        @include flexCenter();
+        width: 180px; height: 50px;
+        font-size: 18px; font-weight: normal; color: #333; 
+        background-color: #ffe120; border-radius: 25px;
+    
         span {
             @include font-M();
             @include transition(.15s);
@@ -41,43 +36,6 @@ body {
         }
     }
  
-    /*
-        search box 
-    */
-    #search_box_popup {
-        width: 90vw; height: 90vh;
-        overflow: auto; z-index: 99999;
-        padding: 100px; background: #fff;
-        button[type=submit] {border: none; background-color: $color-100;}
-        .product-inner {img {width: 200px; height: 200px; object-fit: cover;}}
-    }
-    
-    /* 
-        fixed_quick ico.
-
-            #quick_ico_01 - footer_video_banner
-    */
-    #quick_ico_01 {
-        position: fixed; right: 3%; bottom: 5%;
-        z-index: 9989;
-
-        // active, hover
-        &:hover {figure { opacity: .7 }}
-
-        figure {
-            @include transition(.15s);
-            @include flexCenter(); flex-direction: column;
-            width: 100px; height: 100px;
-            background: $color-100; border-radius: 100%;
-            .ico_wrap {}
-
-            .text_01 { 
-                margin-top: 5px;
-                font-size: 14px; font-weight: 500;color: #fff;
-            }
-            
-        }
-    }
 }
 // ====================================default css====================================
 
@@ -89,9 +47,8 @@ body {
         position: relative;
         .header_wrap {
             @include fullsize();
-            display: flex; align-items: center;
+            @include flexCenter();
             border-bottom: 1px solid #ddd;
-            padding-left: 178px;
             >nav {
                 &.header_left {
                     width: 350px; min-width: 350px;
@@ -909,11 +866,178 @@ body {
             }
         }
 
-        .sub_page {
+        &.sub_page {
             .sub_visual {
-                
+                background-color: #f4fafe;
+                padding: 100px 0 80px;
+                ul {
+                    display: flex;
+                    li {
+                        @include flexCenter();
+                        @include font-18();
+                        position: relative;
+                        .arrow_02 {border-color: #ddd !important; margin: 0 10px;}
+                        img {@include transition(all .15s); vertical-align: unset; }
+                        a:hover {
+                            img {opacity: .5;}
+                        }
+                    }
+                }
+                .visual_tit {
+                    margin-top: 30px;
+                    display: flex; align-items: flex-end;
+                    h2 {
+                        @include font-60;
+                        @include font-gmark-bold;
+                        line-height: 1;
+                        position: relative;
+                        &::after {
+                            @include dots_01(10px,10px);
+                            content: '';
+                            position: absolute; right:-10px; bottom:100%;
+                        }
+                    }
+                    p {
+                        @include font-18;
+                        margin-left:50px; font-weight: 300;letter-spacing: -0.36px;
+                        em {
+                            display: block;
+                            font-weight: bold;
+                        }
+                    }
+                }
             }
-            &#about{}
+            .sub_section {
+                @include marginTop-120;
+            }
+            &#about{
+                .sub_section {
+                    &.sub_section_01 {
+                        .video_area {
+                            width: 1280px; height: 680px; overflow: hidden; margin: 0 auto;
+                            background-color: #000;
+                        }
+                        .video_info {
+                            @include marginTop-100;
+                            ul {
+                                @include flexCenter;
+                                li {
+                                    $wh :260px;
+                                    width: $wh; height: $wh;
+                                    background-color: #e3f3ff; border-radius: 100%;
+                                    @include flexCenter;
+                                    figure {
+                                        @include flexCenter; flex-direction: column;
+                                        figcaption {
+                                            margin-top: 26px;
+                                            @include font-24; font-weight: 500; line-height: 1.08; letter-spacing: -0.48px;
+                                        }
+                                    }
+                                }
+                                .arrow_02 {
+                                    width: 12px; height: 12px;
+                                    margin: 0 40px;
+                                    border-width: 4px;
+                                }
+                            }
+                        }
+
+                        .video_btn {
+                            @include marginTop-80;
+                            @include flexCenter;
+                            a {
+                                margin-right: 30px;
+                                &:last-child {margin-right: 0;}
+                            }
+                        }
+
+                    }
+
+                    &.sub_section_02 {
+                        position: relative;
+                        padding: 140px 0;
+                        background-color: #f5f9ff;
+                        article {
+                            position: relative;
+                            .tit {
+                                @include font-40;
+                                @include font-gmark-bold; line-height: 1.75;letter-spacing: -1.6px;
+                                text-align: center;
+                                em {color: #0966db; @include font-gmark-bold;}
+                            }
+    
+                            ul {
+                                margin-top: 60px;
+                                display: flex; flex-wrap: wrap; gap: 30px 40px;
+                                li {
+                                    @include transition(background-color .15s);
+                                    display: flex; flex-direction: column;
+                                    width: calc(50% - 20px); 
+                                    padding: 60px 40px;
+                                    box-shadow: 1.3px 1.6px 9.8px 0.2px rgba(89, 106, 133, 0.38);
+                                    border-radius: 20px;
+                                    background-color: #fff;
+                                    &:nth-child(2n) {margin-right: 0;}
+                                    &:hover {
+                                        background-color: #0161da;
+                                        h3 {
+                                            .list_num {background-color: #347edb;}
+                                        }
+                                        p {
+                                            span {
+                                                color: #fff;
+                                                &.list_detail {
+                                                    color: #a0b8d7;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    h3 {
+                                        display: flex;
+                                        .list_num {
+                                            @include flexCenter;
+                                            @include font-20;
+                                            @include font-gmark-bold;
+                                            $wh :50px;
+                                            border-radius: 100%;
+                                            width: $wh; height: $wh; background-color: $color-100; 
+                                            min-width: $wh; min-height: $wh;
+                                            color: #fff;
+                                        }
+                                        p {
+                                            margin-left: 15px;
+                                            span {
+                                                display: block;
+                                                &.list_tit {
+                                                    margin-top: 5px;
+                                                    @include font-26;
+                                                    @include font-gmark-m;
+                                                    em {@include font-gmark-bold;}
+                                                }
+                                                &.list_detail {
+                                                    margin-top: 28px;
+                                                    @include font-18; line-height: 1.44;letter-spacing: -0.36px;
+                                                    font-weight: normal;
+                                                    color: #666;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                             
+                            }
+
+                            
+                        }
+                        .event_btn {
+                            position: absolute; right: 5%; bottom: -45px;
+                        }
+                        
+
+                 
+                    }
+                }
+            }
         }
     }
 }

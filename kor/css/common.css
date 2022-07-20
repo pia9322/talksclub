@@ -63,7 +63,7 @@ input[type='submit'] {cursor: pointer;}
 /* JJ */
 * {
 	box-sizing: border-box; padding:0; margin:0;
-	font-family: 'Noto Sans KR','gmarket-b', 'gmarket-m', 'gmarket-l', 'Montserrat', 'Roboto', 'Nanum Brush Script', 'sans-serif';
+	font-family: 'Noto Sans KR', 'gmarket-b', 'gmarket-m', 'gmarket-l', 'Montserrat', 'Roboto', 'Nanum Brush Script', 'sans-serif';
 }
 
 /* dragg */

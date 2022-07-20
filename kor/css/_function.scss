@@ -128,8 +128,12 @@ $color-100 : #0161da;
 @mixin font-gmark-m {font-family: 'gmarket-m'; font-weight: 500;}
 @mixin font-gmark-l {font-family: 'gmarket-l';}
 
+@mixin font-60 { font-size: 60px;}
 @mixin font-40 { font-size: 40px;}
 @mixin font-32 { font-size: 32px;}
+@mixin font-26 { font-size: 26px;}
+@mixin font-24 { font-size: 24px;}
+@mixin font-20 { font-size: 20px;}
 @mixin font-18 { font-size: 18px;}
 @mixin font-15 { font-size: 15px;}
 @mixin font-14 { font-size: 14px;}
@@ -155,18 +159,23 @@ $color-100 : #0161da;
   DEFLUE CSS
 */
 body {
+
+  .lity-close {color: $color-100 !important; }
+  .fixed_layout {@include fixed-layout();}
+  // a link hover effect
+  a.a_link {@include transition(.15s);&:hover { color: $color-100 !important; }}
+  .non_link {cursor: default;}
+  
   
   #arrow{
     &.arrow_01 {
         display: block;
-        margin-left: 10px;
         width: 8px; height: 8px;
         border-right: 1px solid $color-100; border-top: 1px solid $color-100;
         transform: translateX(-30px) rotate(45deg); margin-bottom: 2px;
     }
     &.arrow_02 {
         display: block;
-        margin-left: 10px;
         width: 8px; height: 8px;
         min-width: 8px; min-height: 8px;
         border-right: 1px solid $color-100; border-top: 1px solid $color-100;
@@ -187,6 +196,14 @@ body {
         opacity: .7;
         width: $ballWH; height: $ballWH;
     }
+  }
+
+  #search_box_popup {
+    width: 90vw; height: 90vh;
+    overflow: auto; z-index: 99999;
+    padding: 100px; background: #fff;
+    button[type=submit] {border: none; background-color: $color-100;}
+    .product-inner {img {width: 200px; height: 200px; object-fit: cover;}}
   }
 
 }

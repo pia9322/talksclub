@@ -901,7 +901,6 @@ body {
                         @include font-18;
                         margin-left:50px; font-weight: 300;letter-spacing: -0.36px;
                         em {
-                            display: block;
                             font-weight: bold;
                         }
                     }
@@ -909,6 +908,12 @@ body {
             }
             .sub_section {
                 @include marginTop-120;
+                .section_tit {
+                    @include font-40;
+                    @include font-gmark-bold; line-height: 1.75;letter-spacing: -1.6px;
+                    text-align: center;
+                    em {color: #0966db; @include font-gmark-bold;}
+                }
             }
             &#about{
                 .sub_section {
@@ -959,12 +964,7 @@ body {
                         background-color: #f5f9ff;
                         article {
                             position: relative;
-                            .tit {
-                                @include font-40;
-                                @include font-gmark-bold; line-height: 1.75;letter-spacing: -1.6px;
-                                text-align: center;
-                                em {color: #0966db; @include font-gmark-bold;}
-                            }
+                        
     
                             ul {
                                 margin-top: 60px;
@@ -1037,6 +1037,54 @@ body {
                  
                     }
                 }
+            }
+
+            &#partner_info {
+                .sub_section {
+                    &.sub_section_01 {
+                        figure {
+                            @include marginTop-100;
+                            display: flex; align-items: flex-start;
+                            &:first-child{margin-top: 0;}
+                            img {}
+                            figcaption {
+                                margin-left: 50px;
+                                .tit {
+                                    padding: 25px 40px;
+                                    display: flex; align-items: center; justify-content: space-between;
+                                    border-top: 2px solid #111;
+                                    border-bottom: 1px solid #ddd;
+                                    p {
+                                        @include font-24;
+                                        @include font-gmark-bold;
+                                        line-height: 2.92; letter-spacing: -0.96px;
+                                    }
+                                    a {}
+                                }
+                                .detail {
+                                    padding: 60px 40px;
+                                    > ul {
+                                        > li {
+                                            display: flex; margin-top: 40px;
+                                            &:first-child {margin-top: 0;}
+                                            p {
+                                                &:nth-child(1){
+                                                    @include font-gmark-m;
+                                                    @include font-18; letter-spacing: -0.72px; color: $color-100;
+                                                    min-width: 220px;
+                                                }
+                                                &:nth-child(2){
+                                                    @include font-18; font-weight: 300; line-height: 1.44; letter-spacing: -0.36px; color: #666;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
             }
         }
     }

@@ -57,6 +57,35 @@ body {
         font-size: 18px; font-weight: normal; color: #fff; 
         border: 1px solid #fff;
     }
+
+    .t_btn_01 {
+        @include transition(.15s);
+        @include flexCenter();
+        @include transition(color .15s);
+        @include transition(background-color  .15s);
+        @include font-24;
+        @include font-gmark-m;
+        cursor: pointer;
+        display: inline-block;
+        padding: 20px 35px;  border-radius: 30px;
+        color: #666; background-color: #fff;
+        &:hover,&.active {
+            color: #fff;
+            background-color: $color-100;
+        }
+    }
+    
+    .t_btn_02 {
+        cursor: pointer;
+        display: inline-block;
+        @include font-20; letter-spacing: -0.8px; color: #666;
+        padding-bottom: 15px; border-bottom: 2px solid transparent;
+        &.active {
+            color: $color-100;
+            border-bottom: 2px solid $color-100;
+        }
+    }
+
  
 }
 // ====================================default css====================================
@@ -959,10 +988,12 @@ body {
                     em {color: #0966db; @include font-gmark-bold;}
                     &.tit_m { @include font-gmark-m; }
                 }
+                .section_tit_02 {
+                    @include font-18; line-height: 1.33; letter-spacing: -0.36px;  font-weight: normal;
+                    text-align: center;
+                    color: #666;
+                }
             }
-
-
-
 
             &.company {
                 &#about{
@@ -1139,7 +1170,6 @@ body {
                 }
             }
 
-            
             &.class {
                 &#conversation {
                     @include subMainLine;
@@ -1323,8 +1353,142 @@ body {
                             }
                         }
 
+                        &.sub_section_02 {
+                            background-color: #f4fafe;
+                            article {
+                                padding: 140px 0;
+                                ul {
+                                    @include marginTop-60;
+                                    text-align: center;
+                                    li {
+                                        margin-right: 40px;
+                                        &:last-child {margin-right: 0;}
+                                    }
+                                }
+
+                                .content_item {
+                                    margin-top: 60px;
+                                    figure {
+                                        @include transition(opacity .3s);
+                                        display: none; align-items: center;
+                                        &.active{display: flex;}
+                                        .img_wrap {
+                                        }
+                                        .text_wrap {
+                                            margin-left: 80px;
+                                            p{
+                                                @include font-18;
+                                                line-height: 1.33; letter-spacing: -0.36px; color: #666;
+                                                &.num{
+                                                    font-weight: bold;
+                                                    em {color: #0161da;}
+                                                }
+                                                &.tit{
+                                                    margin-top: 20px;
+                                                    @include font-gmark-bold; @include font-32; color: #333;
+                                                }
+                                                &.detail{
+                                                    margin-top: 40px;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
                     }
                     
+
+                }
+
+                &#orderinfo_02{
+                    .sub_section{
+                        &.sub_section_01 {
+                            background-color: #f4f4f4;
+                            padding: 120px;
+                            article {
+                                display: flex;
+                                padding: 80px;
+                                background-color: #fff;
+                                p {
+                                    display: flex; align-items: flex-start;
+                                    @include font-18; color: #111;
+                                    img {margin-right: 10px;}
+                                }
+                                ul {
+                                    margin-left: 60px;
+                                    max-width: 1300px;
+                                    text-align: center;
+                                    li {
+                                        text-align: left;
+                                        white-space: pre;
+                                        font-size: 15px; line-height: 1.6; letter-spacing: -0.3px;
+                                        strong {font-weight: bold;}
+                                        em {font-weight: bold;color: #0161da;}
+                                    }
+                                    label {
+                                        display: inline-block;
+                                        @include marginTop-60;
+                                        @include font-18; color: #111; text-align: center;
+                                        input {vertical-align: middle; width: 20px; height: 20px;}
+                                    }
+                                }
+                            }
+
+                        }
+                        &.sub_section_02 {
+                            @include subMainLine;
+                            .t_btn_02 {
+                                @include font-gmark-m;
+                                margin-right: 40px;
+                                &:last-child {margin-right: 0;}
+                            }
+                            .content_item {
+                                display: none;
+                                &.active {display: block}
+                                h2 {
+                                    @include marginTop-60;
+                                    @include font-gmark-bold; @include font-28; color: #111;
+                                }
+                                .table_wrap {
+                                    margin-top: 34px;
+                                    &.wrap_01 {
+                                        table {
+                                            width: 100%;
+                                            tr {
+                                                td,th {
+                                                    width: calc(100% / 6);
+                                                    padding: 15px 0;
+                                                    font-size: 18px; text-align: center;
+                                                    border: 1px solid #ddd;
+                                                }
+                                            }
+                                            input {font-size: 18px; border: none; text-align: center; color: #333;}
+                                            input[type=checkbox] {width: 20px; height: 20px; vertical-align: middle;}
+                                            label{margin-left: 7px;}
+                                            input[type=submit] {
+                                                @include transition(all .15s);
+                                                padding: 10px 20px;
+                                                border-radius: 20px; border: 1px solid $color-100; background-color: #fff;
+                                                color: $color-100;
+                                                &:hover {color: #fff; background-color: $color-100;}
+                                            }
+                                            thead {
+                                                background-color: #f0f4f9; font-weight: bold;
+                                            }
+                                            tbody {}
+                                        }
+
+                                    }
+                                }
+                                .con_info_01 {
+                                    margin-top: 20px;
+                                    @include font-18; color: #666;
+                                }
+                            }
+                        }
+                    }
 
                 }
 

@@ -357,6 +357,96 @@
         </section>
 
 
+        <section class="sub_section sub_section_02">
+            <article class="fixed_layout">
+                <h3 class="section_tit">
+                    <em>내공부방</em>
+                </h3>
+                <h3 class="section_tit_02">
+                    내 공부방은 수강생 여러분들이 편안한 마음으로 학습에만 전념할 수 있도록
+                    <br class="pc_only">
+                    온라인 자가학습 및 자가진단이 가능한 국내 최고의 시스템으로 운영되고 있습니다.
+                </h3>
+
+
+                <div class="content_wrap">
+                    <ul>
+                        <li class="t_btn_01 active">강의별 학습보기</li>
+                        <li class="t_btn_01">수업내역 보기</li>
+                        <li class="t_btn_01">월말학습평가</li>
+                    </ul>
+
+                    <div class="content_item">
+                        
+                        <figure class="active">
+
+                            <div class="img_wrap">
+                                <img src="../images/order/orderinfo_01.png" alt="나의강의실">
+                            </div>
+
+                            <div class="text_wrap">
+                                <p class="num"><em>1</em> / 3</p>
+                                <p class="tit">학습 현황</p>
+                                <p class="detail">
+                                    학습현황에서는 수강생의 수강 상태와 학습 진도를
+                                    <br class="pc_only">
+                                    한눈에 확인하실 수 있습니다.
+                                </p>
+                            </div>
+
+                        </figure>
+
+                        <figure>
+
+                            <div class="img_wrap">
+                                <img src="../images/order/orderinfo_01.png" alt="나의강의실">
+                            </div>
+
+                            <div class="text_wrap">
+                                <p class="num"><em>2</em> / 3</p>
+                                <p class="tit">현황</p>
+                                <p class="detail">
+                                    학습현황에서는 수강생의 수강 상태와 학습 진도를
+                                </p>
+                            </div>
+
+                        </figure>
+
+                        <figure>
+
+                            <div class="img_wrap">
+                                <img src="../images/order/orderinfo_01.png" alt="나의강의실">
+                            </div>
+
+                            <div class="text_wrap">
+                                <p class="num"><em>3</em> / 3</p>
+                                <p class="tit">학습</p>
+                                <p class="detail">
+                                    한눈에 확인하실 수 있습니다.
+                                </p>
+                            </div>
+
+                        </figure>
+
+                    </div>
+
+                    <script>
+                        $('.t_btn_01').click(function(){
+                            let idx = $(this).index();
+
+                            $('.t_btn_01').removeClass('active');
+                            $(this).addClass('active');
+
+                            $('.content_item > figure').removeClass('active');
+                            $('.content_item > figure').eq(idx).addClass('active');
+                        })
+
+                    </script>
+                </div>
+
+            </article>
+        </section>
+
 
     </main>
 

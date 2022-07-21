@@ -906,6 +906,7 @@ body {
                     }
                 }
             }
+            
             .sub_section {
                 @include marginTop-120;
                 .section_tit {
@@ -915,6 +916,7 @@ body {
                     em {color: #0966db; @include font-gmark-bold;}
                 }
             }
+
             &#about{
                 .sub_section {
                     &.sub_section_01 {
@@ -1085,6 +1087,50 @@ body {
                     }
                 }
 
+            }
+
+            &#conversation {
+                .sub_section {
+                    &.sub_section_01 {
+                        ul {
+                            width: 1280px; margin: 80px auto 0;
+                            li {
+                                @include transition(all .15s);
+                                display: flex; align-items: center; flex-wrap: wrap;
+                                border: solid 1px #ddd; border-radius: 20px; background-color: #fff;
+                                padding: 25px 0 25px 60px; margin-bottom: 30px;
+                                &:last-child {margin-bottom: 0;}
+                                &:hover, &.active { 
+                                    background-color: #0161da;
+                                    p {
+                                        color: #fff;
+                                        &.list_num {color: #0161da}
+                                        &.list_tit {}
+                                        &.list_detail {}
+                                    }
+                                }
+                                p {
+                                    @include font-24; @include font-gmark-bold;
+                                    &.list_num {
+                                        @include flexCenter;
+                                        width: 50px; height: 50px;
+                                        border-radius: 100%;
+                                        background-color: #f4f4f4;
+                                        margin-right: 30px
+                                    }
+                                    &.list_tit {
+                                        min-width: 100px;
+                                        margin-right: 68px;
+                                    }
+                                    &.list_detail {
+                                        @include font-18; font-family: inherit; font-weight: 300;
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }

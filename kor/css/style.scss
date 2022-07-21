@@ -49,6 +49,14 @@ body {
             width: 100%; height: 100%;
         }
     }
+
+    .btn_04 {
+        @include transition(.15s);
+        @include flexCenter();
+        width: 220px; height: 60px;
+        font-size: 18px; font-weight: normal; color: #fff; 
+        border: 1px solid #fff;
+    }
  
 }
 // ====================================default css====================================
@@ -943,263 +951,384 @@ body {
             .sub_section {
                 @include marginTop-120;
                 position: relative;
+                &.nomargin {margin: 0}
                 .section_tit {
                     @include font-40;
                     @include font-gmark-bold; line-height: 1.75;letter-spacing: -1.6px;
                     text-align: center;
                     em {color: #0966db; @include font-gmark-bold;}
+                    &.tit_m { @include font-gmark-m; }
                 }
             }
 
-            &#about{
-                .sub_section {
-                    &.sub_section_01 {
-                        .video_area {
-                            width: 1280px; height: 680px; overflow: hidden; margin: 0 auto;
-                            background-color: #000;
-                        }
-                        .video_info {
-                            @include marginTop-100;
-                            ul {
-                                @include flexCenter;
-                                li {
-                                    $wh :260px;
-                                    width: $wh; height: $wh;
-                                    background-color: #e3f3ff; border-radius: 100%;
+
+
+
+            &.company {
+                &#about{
+                    .sub_section {
+                        &.sub_section_01 {
+                            .video_area {
+                                width: 1280px; height: 680px; overflow: hidden; margin: 0 auto;
+                                background-color: #000;
+                            }
+                            .video_info {
+                                @include marginTop-100;
+                                ul {
                                     @include flexCenter;
-                                    figure {
-                                        @include flexCenter; flex-direction: column;
-                                        figcaption {
-                                            margin-top: 26px;
-                                            @include font-24; font-weight: 500; line-height: 1.08; letter-spacing: -0.48px;
-                                        }
-                                    }
-                                }
-                                .arrow_02 {
-                                    width: 12px; height: 12px;
-                                    margin: 0 40px;
-                                    border-width: 4px;
-                                }
-                            }
-                        }
-
-                        .video_btn {
-                            @include marginTop-80;
-                            @include flexCenter;
-                            a {
-                                margin-right: 30px;
-                                &:last-child {margin-right: 0;}
-                            }
-                        }
-
-                    }
-
-                    &.sub_section_02 {
-                        position: relative;
-                        padding: 140px 0;
-                        background-color: #f5f9ff;
-                        article {
-                            position: relative;
-                        
-    
-                            ul {
-                                margin-top: 60px;
-                                display: flex; flex-wrap: wrap; gap: 30px 40px;
-                                li {
-                                    @include transition(background-color .15s);
-                                    display: flex; flex-direction: column;
-                                    width: calc(50% - 20px); 
-                                    padding: 60px 40px;
-                                    box-shadow: 1.3px 1.6px 9.8px 0.2px rgba(89, 106, 133, 0.38);
-                                    border-radius: 20px;
-                                    background-color: #fff;
-                                    &:nth-child(2n) {margin-right: 0;}
-                                    &:hover {
-                                        background-color: #0161da;
-                                        h3 {
-                                            .list_num {background-color: #347edb;}
-                                        }
-                                        p {
-                                            span {
-                                                color: #fff;
-                                                &.list_detail {
-                                                    color: #a0b8d7;
-                                                }
-                                            }
-                                        }
-                                    }
-                                    h3 {
-                                        display: flex;
-                                        .list_num {
-                                            @include flexCenter;
-                                            @include font-20;
-                                            @include font-gmark-bold;
-                                            $wh :50px;
-                                            border-radius: 100%;
-                                            width: $wh; height: $wh; background-color: $color-100; 
-                                            min-width: $wh; min-height: $wh;
-                                            color: #fff;
-                                        }
-                                        p {
-                                            margin-left: 15px;
-                                            span {
-                                                display: block;
-                                                &.list_tit {
-                                                    margin-top: 5px;
-                                                    @include font-26;
-                                                    @include font-gmark-m;
-                                                    em {@include font-gmark-bold;}
-                                                }
-                                                &.list_detail {
-                                                    margin-top: 28px;
-                                                    @include font-18; line-height: 1.44;letter-spacing: -0.36px;
-                                                    font-weight: normal;
-                                                    color: #666;
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                             
-                            }
-
-                            
-                        }
-                        .event_btn {
-                            position: absolute; right: 5%; bottom: -45px;
-                        }
-                        
-
-                 
-                    }
-                }
-            }
-
-            &#partner_info {
-                @include subMainLine;
-                .sub_section {
-                    &.sub_section_01 {
-                        figure {
-                            @include marginTop-100;
-                            display: flex; align-items: flex-start;
-                            &:first-child{margin-top: 0;}
-                            img {}
-                            figcaption {
-                                margin-left: 50px;
-                                .tit {
-                                    padding: 25px 40px;
-                                    display: flex; align-items: center; justify-content: space-between;
-                                    border-top: 2px solid #111;
-                                    border-bottom: 1px solid #ddd;
-                                    p {
-                                        @include font-24;
-                                        @include font-gmark-bold;
-                                        line-height: 2.92; letter-spacing: -0.96px;
-                                    }
-                                    a {}
-                                }
-                                .detail {
-                                    padding: 60px 40px;
-                                    > ul {
-                                        > li {
-                                            display: flex; margin-top: 40px;
-                                            &:first-child {margin-top: 0;}
-                                            p {
-                                                &:nth-child(1){
-                                                    @include font-gmark-m;
-                                                    @include font-18; letter-spacing: -0.72px; color: $color-100;
-                                                    min-width: 220px;
-                                                }
-                                                &:nth-child(2){
-                                                    @include font-18; font-weight: 300; line-height: 1.44; letter-spacing: -0.36px; color: #666;
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-            }
-
-            &#conversation {
-                @include subMainLine;
-                .sub_section {
-                    &:last-child {
-                      
-                    }
-                    &.sub_section_01 {
-                        padding-bottom: 210px;
-                        ul {
-                            position: relative;
-                            z-index: 1;
-                            width: 1280px; margin: 80px auto 0;
-                            li {
-                                @include transition(all .15s);
-                                display: flex; align-items: center; flex-wrap: wrap;
-                                border: solid 1px #ddd; border-radius: 20px; background-color: #fff;
-                                padding: 25px 0 25px 60px; margin-bottom: 30px;
-                                &:last-child {margin-bottom: 0;}
-                                &:hover, &.active { 
-                                    background-color: #0161da;
-                                    p {
-                                        color: #fff;
-                                        &.list_num {color: #0161da}
-                                        &.list_tit {}
-                                        &.list_detail {}
-                                    }
-                                }
-                                p {
-                                    @include font-24; @include font-gmark-bold;
-                                    &.list_num {
+                                    li {
+                                        $wh :260px;
+                                        width: $wh; height: $wh;
+                                        background-color: #e3f3ff; border-radius: 100%;
                                         @include flexCenter;
-                                        width: 50px; height: 50px;
-                                        border-radius: 100%;
-                                        background-color: #f4f4f4;
-                                        margin-right: 30px
+                                        figure {
+                                            @include flexCenter; flex-direction: column;
+                                            figcaption {
+                                                margin-top: 26px;
+                                                @include font-24; font-weight: 500; line-height: 1.08; letter-spacing: -0.48px;
+                                            }
+                                        }
                                     }
-                                    &.list_tit {
-                                        min-width: 100px;
-                                        margin-right: 68px;
-                                    }
-                                    &.list_detail {
-                                        @include font-18; font-family: inherit; font-weight: 300;
-
+                                    .arrow_02 {
+                                        width: 12px; height: 12px;
+                                        margin: 0 40px;
+                                        border-width: 4px;
                                     }
                                 }
                             }
+    
+                            .video_btn {
+                                @include marginTop-80;
+                                @include flexCenter;
+                                a {
+                                    margin-right: 30px;
+                                    &:last-child {margin-right: 0;}
+                                }
+                            }
+    
                         }
-
-                        .event_btn {
-                            position: absolute; right: 0; bottom: 0;
+    
+                        &.sub_section_02 {
+                            position: relative;
+                            padding: 140px 0;
+                            background-color: #f5f9ff;
+                            article {
+                                position: relative;
+                            
+        
+                                ul {
+                                    margin-top: 60px;
+                                    display: flex; flex-wrap: wrap; gap: 30px 40px;
+                                    li {
+                                        @include transition(background-color .15s);
+                                        display: flex; flex-direction: column;
+                                        width: calc(50% - 20px); 
+                                        padding: 60px 40px;
+                                        box-shadow: 1.3px 1.6px 9.8px 0.2px rgba(89, 106, 133, 0.38);
+                                        border-radius: 20px;
+                                        background-color: #fff;
+                                        &:nth-child(2n) {margin-right: 0;}
+                                        &:hover {
+                                            background-color: #0161da;
+                                            h3 {
+                                                .list_num {background-color: #347edb;}
+                                            }
+                                            p {
+                                                span {
+                                                    color: #fff;
+                                                    &.list_detail {
+                                                        color: #a0b8d7;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        h3 {
+                                            display: flex;
+                                            .list_num {
+                                                @include flexCenter;
+                                                @include font-20;
+                                                @include font-gmark-bold;
+                                                $wh :50px;
+                                                border-radius: 100%;
+                                                width: $wh; height: $wh; background-color: $color-100; 
+                                                min-width: $wh; min-height: $wh;
+                                                color: #fff;
+                                            }
+                                            p {
+                                                margin-left: 15px;
+                                                span {
+                                                    display: block;
+                                                    &.list_tit {
+                                                        margin-top: 5px;
+                                                        @include font-26;
+                                                        @include font-gmark-m;
+                                                        em {@include font-gmark-bold;}
+                                                    }
+                                                    &.list_detail {
+                                                        margin-top: 28px;
+                                                        @include font-18; line-height: 1.44;letter-spacing: -0.36px;
+                                                        font-weight: normal;
+                                                        color: #666;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                 
+                                }
+    
+                                
+                            }
+                            .event_btn {
+                                position: absolute; right: 5%; bottom: -45px;
+                            }
+                            
+    
+                     
                         }
                     }
-
-                    &.sub_section_02 {
-                        ul {
-                            @include marginTop-80;
-                            display: flex; flex-wrap: wrap;
-                            gap: 80px 28px;
-                            li {
-                                width: 15.19%;
-                                img {
-                                    width: 100%;
-                                }
+                }
+    
+                &#partner_info {
+                    @include subMainLine;
+                    .sub_section {
+                        &.sub_section_01 {
+                            figure {
+                                @include marginTop-100;
+                                display: flex; align-items: flex-start;
+                                &:first-child{margin-top: 0;}
+                                img {}
                                 figcaption {
-                                    text-align: center;
-                                    @include font-18;
-                                    p,a { margin: 30px auto 0; }
+                                    margin-left: 50px;
+                                    .tit {
+                                        padding: 25px 40px;
+                                        display: flex; align-items: center; justify-content: space-between;
+                                        border-top: 2px solid #111;
+                                        border-bottom: 1px solid #ddd;
+                                        p {
+                                            @include font-24;
+                                            @include font-gmark-bold;
+                                            line-height: 2.92; letter-spacing: -0.96px;
+                                        }
+                                        a {}
+                                    }
+                                    .detail {
+                                        padding: 60px 40px;
+                                        > ul {
+                                            > li {
+                                                display: flex; margin-top: 40px;
+                                                &:first-child {margin-top: 0;}
+                                                p {
+                                                    &:nth-child(1){
+                                                        @include font-gmark-m;
+                                                        @include font-18; letter-spacing: -0.72px; color: $color-100;
+                                                        min-width: 220px;
+                                                    }
+                                                    &:nth-child(2){
+                                                        @include font-18; font-weight: 300; line-height: 1.44; letter-spacing: -0.36px; color: #666;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
+                            }
+                        }
+                    }
+    
+                }
+            }
 
+            
+            &.class {
+                &#conversation {
+                    @include subMainLine;
+                    .sub_section {
+                        &:last-child {
+                        
+                        }
+                        &.sub_section_01 {
+                            padding-bottom: 210px;
+                            ul {
+                                position: relative;
+                                z-index: 1;
+                                width: 1280px; margin: 80px auto 0;
+                                li {
+                                    @include transition(all .15s);
+                                    display: flex; align-items: center; flex-wrap: wrap;
+                                    border: solid 1px #ddd; border-radius: 20px; background-color: #fff;
+                                    padding: 25px 0 25px 60px; margin-bottom: 30px;
+                                    &:last-child {margin-bottom: 0;}
+                                    &:hover, &.active { 
+                                        background-color: #0161da;
+                                        p {
+                                            color: #fff;
+                                            &.list_num {color: #0161da}
+                                            &.list_tit {}
+                                            &.list_detail {}
+                                        }
+                                    }
+                                    p {
+                                        @include font-24; @include font-gmark-bold;
+                                        &.list_num {
+                                            @include flexCenter;
+                                            width: 50px; height: 50px;
+                                            border-radius: 100%;
+                                            background-color: #f4f4f4;
+                                            margin-right: 30px
+                                        }
+                                        &.list_tit {
+                                            min-width: 100px;
+                                            margin-right: 68px;
+                                        }
+                                        &.list_detail {
+                                            @include font-18; font-family: inherit; font-weight: 300;
+
+                                        }
+                                    }
+                                }
+                            }
+
+                            .event_btn {
+                                position: absolute; right: 0; bottom: 0;
                             }
                         }
 
+                        &.sub_section_02 {
+                            ul {
+                                @include marginTop-80;
+                                display: flex; flex-wrap: wrap;
+                                gap: 80px 28px;
+                                li {
+                                    width: 15.19%;
+                                    img {
+                                        width: 100%;
+                                    }
+                                    figcaption {
+                                        text-align: center;
+                                        @include font-18;
+                                        p,a { margin: 30px auto 0; }
+                                    }
+
+                                }
+                            }
+
+                        }
                     }
                 }
             }
 
+            
+            &.order {
+                &.visitinfo {
+                    .sub_section_01 {
+                        .text_wrap {
+                            @include marginTop-80;
+                            display: flex;
+                            h2 {
+                                min-width: 470px;
+                                text-align: left; line-height: 1.25; letter-spacing: -1.6px;
+                            }
+                            p {
+                                @include font-18; line-height: 1.33; letter-spacing: -0.36px; color: #666;
+                            }
+                        }
+                    }
+                    .sub_section_02 {
+                        background-color: #f4fafe;
+                        article  {
+                            padding-top: 140px;
+                            ul {
+                                li {
+                                    position: relative;
+                                    padding-top: 260px;
+                                    .img_wrap {
+                                        img {
+                                            position: absolute;
+                                            &:nth-child(1) { left: 5%; bottom: 10%;}
+                                            &:nth-child(2) { left: 10%; bottom: 35%;}
+                                            &:nth-child(3) { left: 50%; bottom: 60%; transform: translate(-50%, 0);}
+                                            &:nth-child(4) { right: 15%; bottom: 35%;}
+                                            &:nth-child(5) { right: 15%; bottom: 10%;}
+                                        }
+                                    }
+                                    .circle_wrap {
+                                        text-align: center;
+                                    }
+                                }
+                            }
+                        }
+    
+                    }
+    
+                    .sub_section_03 {
+                        background-color: $color-100;
+                        article {
+                            padding: 120px 0 100px;
+                            .section_tit { 
+                                @include font-gmark-m;
+                                color: #fff; 
+                                em {color: #fff;}
+                            }
+                            .btn_04 {margin: 50px auto 0;}
+                        }
+                    }
+                }
+
+                &#orderinfo{
+                    .sub_section {
+                        &.sub_section_01 {
+                            ul {
+                                position: relative;
+                                z-index: 1;
+                                width: 1280px; margin: 80px auto 0;
+                                li {
+                                    @include transition(all .15s);
+                                    display: flex; align-items: center; flex-wrap: wrap;
+                                    border: solid 1px #ddd; border-radius: 20px; background-color: #fff;
+                                    padding: 25px 0 25px 60px; margin-bottom: 30px;
+                                    &:last-child {margin-bottom: 0;}
+                                    &:hover, &.active { 
+                                        background-color: #0161da;
+                                        p {
+                                            color: #fff;
+                                            &.list_num {color: #0161da}
+                                            &.list_tit {}
+                                            &.list_detail {}
+                                        }
+                                    }
+                                    p {
+                                        @include font-24; @include font-gmark-bold;
+                                        &.list_num {
+                                            @include flexCenter;
+                                            width: 50px; height: 50px;
+                                            border-radius: 100%;
+                                            background-color: #f4f4f4;
+                                            margin-right: 30px
+                                        }
+                                        &.list_tit {
+                                            min-width: 120px; margin-right: 68px;
+                                        }
+                                        &.list_detail {
+                                            @include font-18; font-family: inherit; font-weight: 300;
+
+                                        }
+                                        
+                                    }
+                                }
+                                
+                            }
+                            .event_btn {
+                                position: absolute; right: 0; bottom: 0;
+                            }
+                        }
+
+                    }
+                    
+
+                }
+
+            }
             
         }
     }

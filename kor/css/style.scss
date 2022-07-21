@@ -35,6 +35,20 @@ body {
             width: 100%; height: 100%;
         }
     }
+
+    .btn_03 {
+        @include transition(.15s);
+        @include flexCenter();
+        width: 180px; height: 50px;
+        font-size: 18px; font-weight: normal; color: #333; 
+        background-color: #f4f4f4; border-radius: 25px;
+        span {
+            @include font-M();
+            @include transition(.15s);
+            @include flexCenter();
+            width: 100%; height: 100%;
+        }
+    }
  
 }
 // ====================================default css====================================
@@ -264,7 +278,7 @@ body {
             .main_section {
                 
                 .section_title {
-                    font-size: 40px; line-height: 1.35; letter-spacing: -1.6px;
+                    font-size: 40px; line-height: 1.35; letter-spacing: -1.7px;
                 }
 
                 &.section_01 {
@@ -486,6 +500,17 @@ body {
 
                 &.section_04 {
                     margin-top: 140px;
+                    position: relative;
+                    .point_img {
+                        position: absolute; 
+                        &.img_01 {
+                            left: 0; bottom: 0;
+                        }
+                        &.img_02 { 
+                            right: 0; bottom: 0;
+                        }
+                    }
+                    
                     .section_wrap {
                         display: flex; align-items: flex-start;
                         .left {
@@ -543,6 +568,8 @@ body {
                         }
                         
                     }
+
+
                     
                 }
 
@@ -565,6 +592,12 @@ body {
                         &.img_02 { 
                             right: 0; bottom: calc(100% - 100px);
                         }
+                    }
+                    .img_wave {
+                        background: url('../images/main/wave_01.png')no-repeat center/cover ;
+                        width: 100%; height: 200px;
+                        position: absolute; left: 0; top: 42%; transform: translateY(-42%);
+                        z-index: 0;
                     }
                     
                 
@@ -909,6 +942,7 @@ body {
             
             .sub_section {
                 @include marginTop-120;
+                position: relative;
                 .section_tit {
                     @include font-40;
                     @include font-gmark-bold; line-height: 1.75;letter-spacing: -1.6px;
@@ -1042,6 +1076,7 @@ body {
             }
 
             &#partner_info {
+                @include subMainLine;
                 .sub_section {
                     &.sub_section_01 {
                         figure {
@@ -1090,9 +1125,16 @@ body {
             }
 
             &#conversation {
+                @include subMainLine;
                 .sub_section {
+                    &:last-child {
+                      
+                    }
                     &.sub_section_01 {
+                        padding-bottom: 210px;
                         ul {
+                            position: relative;
+                            z-index: 1;
                             width: 1280px; margin: 80px auto 0;
                             li {
                                 @include transition(all .15s);
@@ -1129,15 +1171,42 @@ body {
                                 }
                             }
                         }
+
+                        .event_btn {
+                            position: absolute; right: 0; bottom: 0;
+                        }
+                    }
+
+                    &.sub_section_02 {
+                        ul {
+                            @include marginTop-80;
+                            display: flex; flex-wrap: wrap;
+                            gap: 80px 28px;
+                            li {
+                                width: 15.19%;
+                                img {
+                                    width: 100%;
+                                }
+                                figcaption {
+                                    text-align: center;
+                                    @include font-18;
+                                    p,a { margin: 30px auto 0; }
+                                }
+
+                            }
+                        }
+
                     }
                 }
             }
+
+            
         }
     }
 }
 
 
-// ==================================== page css ====================================
+// ======================= ============= page css ====================================
 // ==================================== page css ====================================
 // ==================================== page css ====================================
 

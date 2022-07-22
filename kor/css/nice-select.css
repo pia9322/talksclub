@@ -2,12 +2,13 @@
   -webkit-tap-highlight-color: transparent;
   background-color: #fff;
   border-radius: 5px;
-  border: solid 1px #e8e8e8;
+  /* border: solid 1px #e8e8e8; */
+  border: none;
   box-sizing: border-box;
-  clear: both;
+  /* clear: both; */
   cursor: pointer;
-  display: block;
-  float: left;
+  display: inline-block;
+  /* float: left; */
   font-family: inherit;
   font-size: 14px;
   font-weight: normal;
@@ -27,12 +28,13 @@
   white-space: nowrap;
   width: auto; }
   .nice-select:hover {
-    border-color: #dbdbdb; }
+    border-color: #dbdbdb;
+    }
   .nice-select:active, .nice-select.open, .nice-select:focus {
-    border-color: #999; }
+    border-color: #0161da; }
   .nice-select:after {
-    border-bottom: 2px solid #999;
-    border-right: 2px solid #999;
+    border-bottom: 2px solid #0161da;
+    border-right: 2px solid #0161da;
     content: '';
     display: block;
     height: 5px;
@@ -44,12 +46,13 @@
     -webkit-transform-origin: 66% 66%;
         -ms-transform-origin: 66% 66%;
             transform-origin: 66% 66%;
-    -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-            transform: rotate(45deg);
+    -webkit-transform: rotate(45deg) translateY(-50%);
+        -ms-transform: rotate(45deg) translateY(-50%);
+            transform: rotate(45deg) translateY(-50%);
     -webkit-transition: all 0.15s ease-in-out;
     transition: all 0.15s ease-in-out;
-    width: 5px; }
+    width: 5px; 
+  }
   .nice-select.open:after {
     -webkit-transform: rotate(-135deg);
         -ms-transform: rotate(-135deg);
@@ -62,7 +65,7 @@
             transform: scale(1) translateY(0); }
   .nice-select.disabled {
     border-color: #ededed;
-    color: #999;
+    color: #0161da;
     pointer-events: none; }
     .nice-select.disabled:after {
       border-color: #cccccc; }
@@ -128,7 +131,7 @@
       font-weight: bold; }
     .nice-select .option.disabled {
       background-color: transparent;
-      color: #999;
+      color: #0161da;
       cursor: default; }
 
 .no-csspointerevents .nice-select .list {

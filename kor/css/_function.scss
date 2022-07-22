@@ -154,6 +154,11 @@ $color-100 : #0161da;
   display: inline-block;
   width: $wid; height: $hei; background-color: $color-100; border-radius: 100%
 }
+@mixin circle_01($wid, $hei) {
+  @include flexCenter;
+  width: $wid; height: $hei; background-color: $color-100; border-radius: 100%;
+  min-width: $wid; min-height: $hei;
+}
 
 
 // ====================================JJ MIXIN====================================

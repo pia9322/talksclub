@@ -1622,7 +1622,7 @@ body {
                             padding: 80px 160px;
                             border: solid 1px #ddd;
                             ul {
-                                @include marginTop-60
+                                @include marginTop-60;
                                 li {
                                     display: flex; align-items: center;
                                     margin-bottom: 25px;
